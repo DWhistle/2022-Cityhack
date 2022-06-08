@@ -1,0 +1,43 @@
+version: "3"
+
+
+services:
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - app
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./log/nginx:/var/log/nginx
+      - ./nginx/static:/static
+    ports:
+      - 80:80
+
+  db:
+    image: postgres
+    volumes:
+      - ./backend/resources/db:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=demhack
+      - POSTGRES_PASSWORD=demhack
+
+  app:
+    image: application
+    depends_on:
+      - db
+    build:
+      context: backend/src
+    privileged: true
+    volumes:
+      - ./backend/:/home/appuser/app
+      - ./backend/log/demhack:/var/log/demhack
+    ports:
+      - 8080:5000
+    environment:
+      - DB_SERVER_URL=postgres://demhack:demhack@db:5432/demhack?sslmode=disable
+      - DB_MAX_CONNECTIONS=100
+      - DB_MAX_IDLE_CONNECTIONS=10
+      - DB_MAX_LIFETIME_CONNECTIONS=2
+    dns:
+      - 8.8.8.8
+      - 4.4.4.4
