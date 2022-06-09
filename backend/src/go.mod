@@ -1,4 +1,4 @@
-module github.com/Dwhistle/2022-CityHack/src
+module github.com/Dwhistle/2022-CityHack/backend/src
 
 go 1.18
 

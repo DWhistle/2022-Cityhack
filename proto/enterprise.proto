@@ -3,7 +3,7 @@ package proto;
 
 option go_package = "./models";
 
-message DomainData {
+message EnterpriseData {
   string url = 1;
   string email = 2;
   string phone = 3;

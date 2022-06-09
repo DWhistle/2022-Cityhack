@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Dwhistle/2022-CityHack/src/routes"
+	"github.com/Dwhistle/2022-CityHack/backend/src/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 )

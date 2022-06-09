@@ -2,7 +2,7 @@ SELECT 'CREATE DATABASE gitnews'
 WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'gitnews');\gexec
 
 
-CREATE TABLE domains(
+CREATE TABLE enterprises(
     id bigint PRIMARY KEY,
 	created_at TIMESTAMP,
 	creator_id bigint,

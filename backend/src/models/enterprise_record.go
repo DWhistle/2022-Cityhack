@@ -16,19 +16,19 @@ const (
 	DELETED  RecordStatus = "DELETED"
 )
 
-type DomainRecord struct {
+type EnterpriseRecord struct {
 	ID        uint64       `db:"id"`
 	CreatedAt time.Time    `db:"created_at"`
 	CreatorId uint64       `db:"creator_id"`
 	Status    RecordStatus `db:"status"`
-	Data      DomainData   `db:"data"`
+	Data      EnterpriseData   `db:"data"`
 }
 
-func (dd *DomainData) Value() (driver.Value, error) {
+func (dd *EnterpriseData) Value() (driver.Value, error) {
 	return json.Marshal(&dd)
 }
 
-func (b *DomainData) Scan(value interface{}) error {
+func (b *EnterpriseData) Scan(value interface{}) error {
 	j, ok := value.([]byte)
 	if !ok {
 		return errors.New("type assertion to []byte failed")

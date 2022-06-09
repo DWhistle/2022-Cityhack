@@ -1,25 +1,11 @@
-.PHONY: clean test security build run
+.PHONY: build run
 
 APP_NAME = import_replacement
 BACKEND_DIR = $(PWD)/backend
 MIGRATIONS_FOLDER = $(BACKEND_DIR)/platform/migrations
 
-# clean:
-# 	rm -rf ./build
 
-# security:
-# 	gosec -quiet ./...
-
-# test: security
-# 	go test -v -timeout 30s -coverprofile=cover.out -cover ./...
-# 	go tool cover -func=cover.out
-
-# build: clean test
-# 	CGO_ENABLED=0 go build -ldflags="-w -s" -o $(BUILD_DIR)/$(APP_NAME) main.go
-
-# run: swag build
-# 	$(BUILD_DIR)/$(APP_NAME)
-
+#### database
 migrate.up:
 	migrate -path $(MIGRATIONS_FOLDER) -database "$(DATABASE_URL)" up
 
@@ -28,20 +14,28 @@ migrate.down:
 
 migrate.force:
 	migrate -path $(MIGRATIONS_FOLDER) -database "$(DATABASE_URL)" force $(version)
+####
+
+#### backend
+backend.verify: proto.backend
+	cd $(BACKEND_DIR)/src && go mod download && go build -o /dev/null | echo "All correct"
+
+swag:
+	swag init
 
 proto.backend:
 	protoc --go_out=$(BACKEND_DIR)/src/ proto/*
+#####
 
 proto.frontend:
 	protoc --js_out=. proto/*
 
-docker.backend: proto.backend
+#### docker
+docker.backend: proto.backend backend.verify
 	docker-compose up $(flgs) app nginx db
 
 docker.all: docker.backend
 
 docker.recreate: proto.backend
 	make docker.backend flgs="--force-recreate --build"
-
-swag:
-	swag init
+####

@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/Dwhistle/2022-CityHack/src/controllers"
+	"github.com/Dwhistle/2022-CityHack/backend/src/controllers"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -11,7 +11,7 @@ func PublicRoutes(a *fiber.App) {
 	route := a.Group("/api/v1")
 
 	// Routes for GET method:
-	route.Get("/domains", controllers.GetDomains)
+	route.Get("/enterprises", controllers.GetEnterprises)
 	route.Get("/any", func(c *fiber.Ctx) error {
 		return c.SendString("123")
 	})

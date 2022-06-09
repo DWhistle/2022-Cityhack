@@ -3,7 +3,7 @@ package queries
 import (
 	"fmt"
 
-	"github.com/Dwhistle/2022-CityHack/src/models"
+	"github.com/Dwhistle/2022-CityHack/backend/src/models"
 	"github.com/jmoiron/sqlx"
 	"google.golang.org/protobuf/encoding/protojson"
 )
@@ -12,10 +12,10 @@ type DomainQueries struct {
 	*sqlx.DB
 }
 
-func (q *DomainQueries) GetDomains() ([]models.DomainRecord, error) {
-	records := []models.DomainRecord{}
+func (q *DomainQueries) GetEnterprises() ([]models.EnterpriseRecord, error) {
+	records := []models.EnterpriseRecord{}
 
-	query := `SELECT * from domains`
+	query := `SELECT * from enterprises`
 	err := q.Select(&records, query)
 
 	fmt.Println(err)
@@ -26,8 +26,8 @@ func (q *DomainQueries) GetDomains() ([]models.DomainRecord, error) {
 	return records, nil
 }
 
-func (q *DomainQueries) CreateDomainRecord(rec *models.DomainRecord) error {
-	query := `INSERT INTO domains values($1, $2, $3, $4, $5)`
+func (q *DomainQueries) CreateEnterpriseRecord(rec *models.EnterpriseRecord) error {
+	query := `INSERT INTO enterprises values($1, $2, $3, $4, $5)`
 	data, _ := protojson.Marshal(&rec.Data)
 	_, err := q.Exec(query, rec.ID, rec.CreatedAt, rec.CreatorId, rec.Status, data)
 
