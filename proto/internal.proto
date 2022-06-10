@@ -13,4 +13,7 @@ message UserData {
   string url = 1;
   string email = 2;
   string phone = 3;
+  string inn = 4;
+  string description = 5;
+  string logo = 6;
 }
