@@ -6,7 +6,7 @@ import "github.com/gofiber/fiber/v2"
 // import "github.com/Dwhistle/2022-CityHack/backend/src/models"
 func Login(c *fiber.Ctx) error {
 	if form, err := c.MultipartForm(); err == nil {
-		c.JSON(fiber.Map{
+		return c.JSON(fiber.Map{
 			"login": form.Value["login"],
 		})
 	}
