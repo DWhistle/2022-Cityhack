@@ -12,6 +12,7 @@ func PublicRoutes(a *fiber.App) {
 
 	// Routes for GET method:
 	route.Get("/enterprises", controllers.GetEnterprises)
+	route.Post("/login", controllers.Login)
 	route.Get("/any", func(c *fiber.Ctx) error {
 		return c.SendString("123")
 	})
