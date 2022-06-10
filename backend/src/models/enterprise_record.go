@@ -7,20 +7,20 @@ import (
 	"time"
 )
 
-type RecordStatus string
+type EnterpriseStatus string
 
 const (
-	NEW      RecordStatus = "NEW"
-	MAILED   RecordStatus = "MAILED"
-	UPDATING RecordStatus = "UPDATING"
-	DELETED  RecordStatus = "DELETED"
+	NEW      EnterpriseStatus = "NEW"
+	MAILED   EnterpriseStatus = "MAILED"
+	UPDATING EnterpriseStatus = "UPDATING"
+	DELETED  EnterpriseStatus = "DELETED"
 )
 
 type EnterpriseRecord struct {
 	ID        uint64       `db:"id"`
 	CreatedAt time.Time    `db:"created_at"`
 	CreatorId uint64       `db:"creator_id"`
-	Status    RecordStatus `db:"status"`
+	Status    EnterpriseStatus `db:"status"`
 	Data      EnterpriseData   `db:"data"`
 }
 

@@ -12,8 +12,7 @@ import (
 
 func main() {
 	dir, _ := filepath.Abs(filepath.Dir(os.Args[0]))
-	err := godotenv.Load(filepath.Join(dir, ".env"))
-	fmt.Println(err)
+	godotenv.Load(filepath.Join(dir, ".env"))
 	app := fiber.New()
 
 	routes.PublicRoutes(app)

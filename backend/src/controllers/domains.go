@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 
@@ -30,8 +29,7 @@ func GetEnterprises(c *fiber.Ctx) error {
 			Phone: "+8213232332",
 		},
 	})
-	enterprises, e := db.GetEnterprises()
-	fmt.Print(e)
+	enterprises, _ := db.GetEnterprises()
 	return c.JSON(fiber.Map{
 		"error": false,
 		"msg":   nil,

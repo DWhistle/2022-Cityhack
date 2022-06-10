@@ -18,13 +18,13 @@ migrate.force:
 
 #### backend
 backend.verify: proto.backend
-	cd $(BACKEND_DIR)/src && go mod download && go build -o /dev/null | echo "All correct"
+	@cd $(BACKEND_DIR)/src && go fmt && go mod download && go build -o /dev/null && echo "All correct"
 
 swag:
 	swag init
 
 proto.backend:
-	protoc --go_out=$(BACKEND_DIR)/src/ proto/*
+	@protoc --go_out=$(BACKEND_DIR)/src/ proto/*
 #####
 
 proto.frontend:
@@ -37,5 +37,6 @@ docker.backend: proto.backend backend.verify
 docker.all: docker.backend
 
 docker.recreate: proto.backend
+	docker-compose rm -f db
 	make docker.backend flgs="--force-recreate --build"
 ####

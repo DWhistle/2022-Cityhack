@@ -8,3 +8,9 @@ message EnterpriseData {
   string email = 2;
   string phone = 3;
 }
+
+message UserData {
+  string url = 1;
+  string email = 2;
+  string phone = 3;
+}

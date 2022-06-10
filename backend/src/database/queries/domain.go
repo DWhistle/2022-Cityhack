@@ -1,8 +1,6 @@
 package queries
 
 import (
-	"fmt"
-
 	"github.com/Dwhistle/2022-CityHack/backend/src/models"
 	"github.com/jmoiron/sqlx"
 	"google.golang.org/protobuf/encoding/protojson"
@@ -18,7 +16,6 @@ func (q *DomainQueries) GetEnterprises() ([]models.EnterpriseRecord, error) {
 	query := `SELECT * from enterprises`
 	err := q.Select(&records, query)
 
-	fmt.Println(err)
 	if err != nil {
 		return records, err
 	}
