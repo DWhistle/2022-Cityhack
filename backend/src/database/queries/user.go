@@ -26,12 +26,13 @@ func (q *UserQueries) GetUsers() ([]models.UserRecord, error) {
 	return records, nil
 }
 
-const upsertUserQuery = `INSERT INTO public.users(login, created_at, role, data)
-VALUES ($1, $2, $3, $4)
+const upsertUserQuery = `INSERT INTO public.users(login, created_at, role, status, data)
+VALUES ($1, $2, $3, $4, $5)
 ON CONFLICT (login) 
 DO 
-UPDATE SET  data = $4,
-			role = $3;
+UPDATE SET  data = $5,
+			role = $3,
+			status = $4;
 `
 
 func (q *UserQueries) Upsert(u *ext.User) error {
@@ -46,8 +47,8 @@ func (q *UserQueries) Upsert(u *ext.User) error {
 	if len(u.Login) == 0 {
 		return errors.New("login cannot be empty")
 	}
-	q.Exec(upsertUserQuery, u.Login, time.Now(), u.Role.String(), &data)
-	return nil
+	_, err := q.Exec(upsertUserQuery, u.Login, time.Now(), u.Role.String(), u.Status.String(), &data)
+	return err
 }
 
 func (q *UserQueries) GetByLogin(login string) (*models.UserRecord, error) {

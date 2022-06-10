@@ -12,12 +12,19 @@ message User {
   string logo = 6;
   string login = 7;
   UserRole role = 8;
+  UserStatus status = 9;
     
     enum UserRole {
-         UNKNOWN = 0;
-         ENTERPRISE = 1;
-         VIEWER = 2;
-         ADMIN = 3;
+        UNKNOWN_ROLE = 0;
+        ENTERPRISE = 1;
+        VIEWER = 2;
+        ADMIN = 3;
     }
+    enum UserStatus {
+        UNKNOWN_STATUS = 0;
+        NEW = 1;
+        MAILED = 2;
+        JOINED = 3;
+    }	
 }
 
