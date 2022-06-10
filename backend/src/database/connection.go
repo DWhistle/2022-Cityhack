@@ -38,7 +38,8 @@ func postgreSQLConnection() (*sqlx.DB, error) {
 }
 
 type Queries struct {
-	*queries.DomainQueries // load queries from Book model
+	*queries.DomainQueries
+	*queries.UserQueries
 }
 
 func OpenConnection() (*Queries, error) {
@@ -49,6 +50,7 @@ func OpenConnection() (*Queries, error) {
 
 	return &Queries{
 		// Set queries from models:
-		DomainQueries: &queries.DomainQueries{DB: db}, // from Book model
+		DomainQueries: &queries.DomainQueries{DB: db},
+		UserQueries:   &queries.UserQueries{DB: db}, // from Book model
 	}, nil
 }
