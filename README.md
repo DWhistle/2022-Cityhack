@@ -15,3 +15,42 @@
 * Логика загрузки товаров(кучами)
 * Логика получения товаров
 * Логика рассылок с предложением зайти на платформу + авторизация
+
+#### Фронт:
+* главная
+* хэдер
+* футер
+* авторизация
+* ЛК производителя
+* товар
+* лист товаров
+* поиск товаров
+
+#### Объекты для фронта:
+
+#### item
+* id - num
+* company_id - num
+* isAccept - bool
+* title - string
+* description - string
+* img - string (link)
+* category - string
+
+#### company // и есть юзер (компании)
+* id - num
+* title - string
+* mail - string
+* pass - string
+* inn - num
+* description - string
+* logo - string (link)
+* okved - array? [num,num,num] // ОКВЕД
+* est - data // основание
+
+#### user // простой пользователь
+* id - num
+* name - string
+* email - string
+* pass - string
+* favs - array? [item_id, ..] // избранное
