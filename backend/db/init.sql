@@ -7,7 +7,7 @@ CREATE TYPE user_role AS ENUM ('ADMIN', 'ENTERPRISE', 'VIEWER');
 
 CREATE TABLE users (
 	id SERIAL,
-    login varchar(40),
+    login varchar(40) UNIQUE,
 	created_at TIMESTAMP,
 	role user_role,
 	data JSONB NOT NULL,

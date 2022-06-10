@@ -1,0 +1,23 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "./models/ext";
+
+message User {
+  string url = 1;
+  string email = 2;
+  string phone = 3;
+  string inn = 4;
+  string description = 5;
+  string logo = 6;
+  string login = 7;
+  UserRole role = 8;
+    
+    enum UserRole {
+         UNKNOWN = 0;
+         ENTERPRISE = 1;
+         VIEWER = 2;
+         ADMIN = 3;
+    }
+}
+
