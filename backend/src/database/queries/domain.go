@@ -36,11 +36,3 @@ func (q *DomainQueries) CreateEnterpriseRecord(rec *models.EnterpriseRecord) err
 	// This query returns nothing.
 	return nil
 }
-
-// type DomainRecord struct {
-// 	ID uint64
-// 	CreatedAt time.Time
-// 	CreatorId uint64
-// 	Status RecordStatus
-// 	Data DomainData
-// }

@@ -6,8 +6,6 @@ import (
 	"strconv"
 	"time"
 
-	// "time"
-
 	"github.com/Dwhistle/2022-CityHack/backend/src/database/queries"
 	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/jmoiron/sqlx"

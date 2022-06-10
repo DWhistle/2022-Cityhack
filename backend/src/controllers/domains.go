@@ -12,7 +12,6 @@ import (
 func GetEnterprises(c *fiber.Ctx) error {
 	db, err := database.OpenConnection()
 	if err != nil {
-		// Return status 500 and database connection error.
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 			"error": true,
 			"msg":   err.Error(),

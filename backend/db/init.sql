@@ -24,6 +24,6 @@ CREATE TABLE enterprises (
 
 
 INSERT INTO users(login, created_at, role, data) values
-	('admin', now(), 'ADMIN', '{}'),
-	('enterprise', now(), 'ENTERPRISE', '{}'),
-	('viewer', now(), 'VIEWER', '{}');
+	('admin', now(), 'ADMIN', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}'),
+	('enterprise', now(), 'ENTERPRISE', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}'),
+	('viewer', now(), 'VIEWER', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}');
