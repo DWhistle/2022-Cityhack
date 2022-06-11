@@ -63,7 +63,7 @@
 
   background: #c92723;
   border-radius: 8px;
-  border-color: white;
+  border: none;
 
   font-style: normal;
   font-weight: 400;
@@ -112,7 +112,7 @@
 
 .input {
   background: #f0f0f0;
-  border: 1px solid #e3e3e3;
+  border: none;
   border-radius: 8px;
 }
 
@@ -135,7 +135,7 @@
 
 .inputContainer {
   min-width: 363px;
-  height: 100%;
+  height: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -145,15 +145,22 @@
   border-radius: 8px;
 }
 
+.input{
+  padding-left: 20px;
+}
+
 .input::placeholder {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 26px;
-  padding-left: 11px;
   /* identical to box height, or 144% */
   font-feature-settings: "salt" on, "liga" off;
 
   /* Gray 2 */
   color: #4f4f4f;
+}
+
+.input:focus{
+  outline: none;
 }

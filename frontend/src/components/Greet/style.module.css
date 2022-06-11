@@ -62,7 +62,7 @@
 .about {
   display: flex;
   flex-direction: row;
-  margin-top: 60px;
+  margin-top: 80px;
   margin-left: 100px;
   margin-right: 100px;
   border: 1px solid #FFFFFF;
@@ -102,23 +102,43 @@
 
 .interHeader{
   margin-left: 10px;
-  margin-bottom: 3rem;
+  margin-top: 100px;
   display: flex;
   justify-content: space-between;
 }
 
+.interText{
+  width: 40%;
+  margin-bottom: 30px;
+}
+
+.interHeader {
+  font-size: 20px;
+}
+
+.interHeader h1{
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.interHeader p{
+  margin-top: 40px;  
+}
+
+/* button */
+
 .enter0{
   margin-left: 25px;
   height: 60px;
-  width: 220px;
-  border: 1px solid #58DC5D;
+  width: 250px;
+  border: 1px solid #C92723;
   background: none;
   border-radius: 8px;
 }
 
 .btnText0{
   font-size: 20px;
-  color: #58DC5D;
+  color:#C92723;
   text-decoration: none;
 }
 
@@ -128,8 +148,13 @@
 }
 
 .btnText0:hover{
+  color: #C92723;
+  text-decoration: none;
+}
+
+.enter0:hover{
   color: inherit;
-  opacity: 50%;
+  border-color: #c09797;
   text-decoration: none;
 }
 
