@@ -33,3 +33,9 @@ func (q *ProductQueries) GetUserProducts(creatorId int32) ([]models.ProductRecor
 	err := q.Select(&products, GetUserProductsQuery, creatorId)
 	return products, err
 }
+
+func (q *ProductQueries) GetOkpd2() ([]models.Okpd2, error) {
+	records := []models.Okpd2{}
+	err := q.Select(&records, GetOdkp2Query)
+	return records, err
+}

@@ -17,3 +17,5 @@ const GetUserQuery = `SELECT * FROM users WHERE login = $1 LIMIT 1`
 const GetUsersQuery = `SELECT * from users`
 
 const GetUserProductsQuery = `SELECT * from products where creator_id = $1`
+
+const GetOdkp2Query = `SELECT * from okpd2`

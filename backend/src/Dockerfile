@@ -8,6 +8,10 @@ COPY . .
 # ENV CGO_ENABLED=0 GOOS=linux GOARCH=64
 ENV CGO_ENABLED=0
 # RUN go build -ldflags="-s -w" -o apiserver .
+RUN apk add protoc && \
+    go install google.golang.org/protobuf/cmd/protoc-gen-go@latest && \
+    protoc --go_out=. proto/* 
+
 RUN go build -o apiserver .
 # FROM scratch
 

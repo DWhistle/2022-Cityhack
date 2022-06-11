@@ -16,7 +16,8 @@ services:
   db:
     image: postgres
     volumes:
-      - ./backend/db:/docker-entrypoint-initdb.d
+      - ./backend/db/init:/docker-entrypoint-initdb.d
+      - ./backend/db/data:/var/data
     environment:
       - POSTGRES_USER=demhack
       - POSTGRES_PASSWORD=demhack

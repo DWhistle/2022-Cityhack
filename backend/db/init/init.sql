@@ -26,6 +26,18 @@ CREATE TABLE products (
 	CONSTRAINT fk_uid 
 	FOREIGN KEY(creator_id) REFERENCES users(id)
 );
+
+CREATE TABLE okpd2 (
+  id SERIAL,
+  number varchar(40),
+  name VARCHAR(1000),
+  PRIMARY KEY (id)
+);
+
+COPY okpd2(number, name)
+FROM '/var/data/okpd2.csv'
+DELIMITER ';'
+CSV HEADER;
 -- CREATE TABLE enterprises (
 --     id bigint PRIMARY KEY,
 -- 	created_at TIMESTAMP,
