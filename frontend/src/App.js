@@ -61,7 +61,7 @@ function App() {
         <Header />
         <Routes>          
           <Route path="/" element={<Greet />} />
-          <Route path="signin" element={<Signin />} />
+          <Route path="/signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
