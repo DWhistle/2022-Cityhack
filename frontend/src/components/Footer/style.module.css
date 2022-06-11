@@ -1,4 +1,3 @@
-
 .footer {
   display: flex;
   justify-content: space-evenly;
@@ -15,4 +14,98 @@
   margin-bottom: 75px;
   height: 1px;
   background-color: black;
+}
+
+.mosru {
+  width: 100px;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28.3929px;
+  line-height: 36px;
+}
+
+.container {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: row;
+  background: #FFF8F8;
+  font-family: "Arial";
+}
+
+.oneFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.portal {
+  margin-top: 20px;
+  width: 250px;
+  margin-bottom: 85px;
+}
+
+.twoFlex {
+  margin-left: 99px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 150px;
+  min-width: 800px;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+
+  color: #333333;
+}
+
+.twoFlex a {
+  min-width: 300px;
+  margin-bottom: 18px;
+  margin-left: 40px;
+}
+
+/* .twoFlex .servis {
+  margin-bottom: 100px;
+} */
+
+.treeFlex {
+  width: 300px;
+  display: flex;
+  justify-content: right;
+}
+
+.buttn {
+  box-sizing: border-box;
+  width: 180px;
+  height: 54px;
+
+  border: 1px solid #c92723;
+  border-radius: 8px;
+  background: #FFF8F8;
+
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #c92723;
+}
+
+.container a{
+  /* padding-left: 20px; */
+  /* font-size: 30px; */
+  /* font-weight: 700; */
+  color: #333333;
+  text-decoration: none;
+}
+
+
+.container a:hover{
+  color: #585858;
+  text-decoration: none;
 }
