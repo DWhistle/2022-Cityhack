@@ -20,7 +20,6 @@ function Greet() {
               </div>
             </div>
 
-
             <div className={style.points}>
               <div className={style.point}>
                 <a href='/'>
@@ -52,11 +51,14 @@ function Greet() {
             </div>
 
             <div className={style.interHeader}>
-              <h1 >Популярные лоты</h1>
+              <div className={style.interText}>
+                <h1 >Товары и услуги местных производителей</h1>
+                <p>Один из важных инструментов продвижения промышленной продукции московского производства на внутренние и внешние рынки сбыта</p>
+              </div>
               <div>
-              <button type="button" className={style.enter0}>
+                  <button type="button" className={style.enter0}>
                       <Link className={style.btnText0} to='/tasks'>
-                        <span>Смотреть все</span>                    
+                        <span>Смотреть все товары</span>                    
                       </Link>
                   </button>
               </div>

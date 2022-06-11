@@ -35,7 +35,7 @@ function Header() {
         </a>
       </div>
     
-      <Link to='/profile'>
+      <Link to='/signin'>
         <div>
           <button type="button" className={style.enter}>
               <span className={style.btnText}>Вход на платформу</span>
