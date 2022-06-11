@@ -31,7 +31,7 @@ proto.frontend:
 	protoc --js_out=. proto/*
 
 #### docker
-docker.backend: proto.backend backend.verify
+docker.backend:
 	docker-compose up $(flgs) app nginx db
 
 docker.all: docker.backend
