@@ -32,7 +32,7 @@ proto.frontend:
 
 #### docker
 docker.backend:
-	docker-compose up $(flgs) app nginx db
+	docker-compose up $(flgs) app nginx db client
 
 docker.all: docker.backend
 
