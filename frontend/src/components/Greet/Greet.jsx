@@ -50,6 +50,33 @@ function Greet() {
               </div>
             </div>
 
+            <h2 className={style.busHeader}>Бизнес в Москве – это:</h2>
+
+            <div className={style.business}>
+              <div className={style.busText}>
+                <h2 href='/'>
+                до 100 млн руб.
+                </h2>
+                <p>гарантийная поддержка МСП при кредитовании</p>
+              </div>
+              <div className={style.busLine}>
+              </div>
+              <div className={style.busText}>
+                <h2 href='/'>
+                +18,9%
+                </h2>
+                <p>прирост инвестиций за 2021 год к 2020 году в сопоставимых ценах</p>
+              </div>
+              <div className={style.busLine}>
+              </div>
+              <div className={style.busText}>
+                <h2 href='/'>
+                50%
+                </h2>
+                <p>субсидирование затрат на техприсоединение для промышленных предприятия</p>
+              </div>
+            </div>
+
             <div className={style.interHeader}>
               <div className={style.interText}>
                 <h1 >Товары и услуги местных производителей</h1>
@@ -69,6 +96,17 @@ function Greet() {
                 {tasks.map((el) => <Task key={el.id} {...el} />)}
               </div>
             )}
+
+            <div className={style.banner}>
+              <div className={style.textBanner2}>
+                <h2>Продвигайте свою продукцию на внутренние и внешние рынки сбыта</h2>
+                <button type="button" className={style.bannerButton}>
+                      <Link className={style.btnText0} to='/tasks'>
+                        <span>Добавить свою компанию</span>                    
+                      </Link>
+                </button>
+              </div>
+            </div>
 
           </div>
         </>

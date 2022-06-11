@@ -62,7 +62,7 @@
 .about {
   display: flex;
   flex-direction: row;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-left: 100px;
   margin-right: 100px;
   border: 1px solid #FFFFFF;
@@ -96,6 +96,52 @@
   padding-left: 100px;
   border-left: #C92723 solid 8px;
   width: 65%; 
+}
+
+/* BUSINESS */
+
+.business{
+
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.busHeader{
+  font-size: 50px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.busText{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 33%;
+}
+
+.busText h2{
+  font-size: 40px;
+  font-weight: 500;
+  color: #333333;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.busText p {
+  font-size: 20px;
+  color: #333333;
+  text-decoration: none;
+}
+
+.busLine{
+  margin-top: 15px;
+  height: 80px;
+  border-left: #C92723 solid 8px;
 }
 
 /* ITEM LIST */
@@ -162,4 +208,31 @@
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+/* BANNER2 */
+
+.textBanner h2{
+  width: 40%;
+}
+
+.textBanner2{
+  color: white;
+  margin-left: 140px;
+  margin-top: 150px;
+  margin-bottom: 140px;
+  width: 600px;
+}
+
+.bannerButton{
+  margin-top: 50px;
+  height: 60px;
+  width: 350px;
+  border: none;
+  background: white;
+  border-radius: 8px;
+}
+
+.bannerButton:hover{
+  opacity: 90%;
 }
