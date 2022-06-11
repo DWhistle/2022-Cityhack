@@ -16,6 +16,10 @@ const GetUserQuery = `SELECT * FROM users WHERE login = $1 LIMIT 1`
 
 const GetUsersQuery = `SELECT * from users`
 
+const GetUsersToMailQuery = `SELECT * from users WHERE status = 'APPROVED'`
+
 const GetUserProductsQuery = `SELECT * from products where creator_id = $1`
+
+const UpdateUserStatusQuery = `UPDATE users SET status = $1 WHERE login = $2`
 
 const GetOdkp2Query = `SELECT * from okpd2`

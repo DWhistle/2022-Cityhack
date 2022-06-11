@@ -1,7 +1,7 @@
 SELECT 'CREATE DATABASE gitnews'
 WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'gitnews');\gexec
 
-CREATE TYPE user_status AS ENUM ('NEW', 'MAILED', 'JOINED');
+CREATE TYPE user_status AS ENUM ('PENDING', 'APPROVED', 'MAILED', 'JOINED');
 
 CREATE TYPE user_role AS ENUM ('ADMIN', 'ENTERPRISE', 'VIEWER');
 
@@ -38,16 +38,9 @@ COPY okpd2(number, name)
 FROM '/var/data/okpd2.csv'
 DELIMITER ';'
 CSV HEADER;
--- CREATE TABLE enterprises (
---     id bigint PRIMARY KEY,
--- 	created_at TIMESTAMP,
--- 	creator_id bigint,
--- 	status enterprise_status,
--- 	data JSONB NOT NULL
--- );
 
 
 INSERT INTO users(login, created_at, role, status, data) values
-	('admin', now(), 'ADMIN', 'NEW', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru", "inn": "213", "description": "Продавец", "logo": "http://123.jpg"}'),
-	('enterprise', now(), 'ENTERPRISE', 'NEW', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}'),
-	('viewer', now(), 'VIEWER', 'NEW', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}');
+	('admin', now(), 'ADMIN', 'PENDING', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru", "inn": "213", "description": "Продавец", "logo": "http://123.jpg"}'),
+	('enterprise', now(), 'ENTERPRISE', 'PENDING', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}'),
+	('viewer', now(), 'VIEWER', 'PENDING', '{"email": "apopov@mail.ru", "phone": "+79345674223", "url": "http://apopov.ru"}');
