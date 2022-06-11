@@ -6,6 +6,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cache"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func DefaultSetup(a *fiber.App) {
@@ -16,4 +17,5 @@ func DefaultSetup(a *fiber.App) {
 		Expiration:   30 * time.Minute,
 		CacheControl: true,
 	}))
+	a.Use(cors.New())
 }
