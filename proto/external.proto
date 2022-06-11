@@ -20,13 +20,15 @@ message User {
         VIEWER = 2;
         ADMIN = 3;
     }
-    enum UserStatus {
-        UNKNOWN_STATUS = 0;
-        NEW = 1;
-        MAILED = 2;
-        JOINED = 3;
-    }	
 }
+
+enum UserStatus {
+    UNKNOWN_STATUS = 0;
+    PENDING = 1;
+    APPROVED = 2;
+    MAILED = 3;
+    JOINED = 4;
+}	
 
 message ProductRequest {
     repeated Product products = 1;
@@ -35,4 +37,9 @@ message ProductRequest {
 
 message Product {
     string name = 1;
+}
+
+message ChangeStatusRequest {
+    UserStatus status = 1;
+    string user = 2;
 }

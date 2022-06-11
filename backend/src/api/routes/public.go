@@ -10,14 +10,19 @@ func PublicRoutes(a *fiber.App) {
 	// Create routes group.
 	route := a.Group("/api/v1")
 
-	route.Get("/enterprises", controllers.GetEnterprises)
+	users := route.Group("/user")
+	users.Get("/", controllers.GetUserByLogin)
+	users.Post("/", controllers.AddUser)
+	users.Post("/status", controllers.ChangeUserStatus)
+
 	route.Post("/login", controllers.Login)
-	route.Get("/user", controllers.GetUserByLogin)
-	route.Post("/products", controllers.CreateProductsBatch)
-	route.Get("/products", controllers.GetUserProducts)
-	route.Get("/odkp2", controllers.GetOdkp2)
-	route.Post("/user", controllers.AddUser)
-	route.Get("/any", func(c *fiber.Ctx) error {
-		return c.SendString("123")
+
+	products := route.Group("/products")
+	products.Post("/", controllers.CreateProductsBatch)
+	products.Get("/", controllers.GetUserProducts)
+
+	route.Get("/okpd2", controllers.GetOdkp2)
+	route.Get("/ping", func(c *fiber.Ctx) error {
+		return c.SendString("pong")
 	})
 }

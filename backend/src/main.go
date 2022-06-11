@@ -27,6 +27,7 @@ func startApi() {
 
 func startScheduler() {
 	defer wg.Done()
+	// scheduler.Start()
 	fmt.Println("Exiting scheduler")
 }
 

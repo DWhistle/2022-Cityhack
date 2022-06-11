@@ -45,10 +45,16 @@ func (q *UserQueries) GetByLogin(login string) (*models.UserRecord, error) {
 	record := &models.UserRecord{}
 
 	err := q.Get(record, GetUserQuery, login)
+	return record, err
+}
 
-	if err != nil {
-		return record, err
-	} else {
-		return record, nil
-	}
+func (q *UserQueries) UpdateStatus(login string, status ext.UserStatus) error {
+	_, err := q.Exec(UpdateUserStatusQuery, status.String(), login)
+	return err
+}
+
+func (q *UserQueries) GetMailingList() ([]*models.UserRecord, error) {
+	var users []*models.UserRecord
+	err := q.Select(&users, GetUsersToMailQuery)
+	return users, err
 }

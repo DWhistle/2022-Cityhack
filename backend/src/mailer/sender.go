@@ -3,21 +3,25 @@ package mailer
 import (
 	"log"
 
+	"github.com/Dwhistle/2022-CityHack/backend/src/database"
+	"github.com/Dwhistle/2022-CityHack/backend/src/models"
+	"github.com/Dwhistle/2022-CityHack/backend/src/models/ext"
 	"gopkg.in/gomail.v2"
 )
 
 type Email struct {
-	From    string
 	To      string
 	Subject string
 	Body    string
 	Attach  string
+	User    *models.UserRecord
 }
 
-func SendEmail(email Email) error {
-	dialer := gomail.NewDialer("smtp.yandex.com", 465, "mostorg22@yandex.com", "123456A.2")
+func SendEmail(email *Email) error {
+	sender := "mostorg22@yandex.com"
+	dialer := gomail.NewDialer("smtp.yandex.com", 465, sender, "123456A.2")
 	m := gomail.NewMessage()
-	m.SetHeader("From", email.From)
+	m.SetHeader("From", sender)
 	m.SetHeader("To", email.To)
 	// m.SetAddressHeader("Cc", "dan@example.com", "Dan")
 	m.SetHeader("Subject", email.Subject)
@@ -30,12 +34,19 @@ func SendEmail(email Email) error {
 	return nil
 }
 
-func Listen(mails chan Email) {
+func Listen(mails chan *Email) {
 
 	for m := range mails {
 		log.Print("Sending message to " + m.To)
 		SendEmail(m)
-		close(mails)
+		conn, err := database.OpenConnection()
+		if err != nil {
+			log.Fatal(err)
+		}
+		err = conn.UserQueries.UpdateStatus(m.User.Login, ext.UserStatus_MAILED)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 }

@@ -34,6 +34,29 @@ func AddUser(c *fiber.Ctx) error {
 	}
 }
 
+func ChangeUserStatus(c *fiber.Ctx) error {
+	var req ext.ChangeStatusRequest
+
+	err := protojson.Unmarshal(c.Body(), &req)
+	if err != nil {
+		return c.Status(400).SendString(err.Error())
+	}
+
+	conn, _ := database.OpenConnection()
+
+	_, err = conn.UserQueries.GetByLogin(req.User)
+	if err != nil {
+		return c.SendStatus(404)
+	}
+	err = conn.UserQueries.UpdateStatus(req.User, req.Status)
+
+	if err != nil {
+		return c.Status(500).SendString(err.Error())
+	} else {
+		return c.SendStatus(200)
+	}
+}
+
 func GetUserByLogin(c *fiber.Ctx) error {
 	login := c.Get("Authorization")
 	if len(login) == 0 {
