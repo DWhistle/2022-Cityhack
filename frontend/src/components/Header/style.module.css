@@ -7,24 +7,26 @@
 }
 
 .logoGroup{
+  margin-top: 8px;
   display: flex;
 }
 
 .logo1{
   position: relative;
+  top: 12px;
   left: -8px;
-  width: 120px;
+  width: 60px;
+  height: 80px;
 }
 
 .logo2{
   margin-left: 10px;
-  margin-top: 19px;
 }
 
 .logoText{
-  color: #555555;
-  font-weight: bold;
-  font-size: 43px;
+  color: #C92723;
+  font-weight: 500;
+  font-size: 60px;
   text-decoration: none;
 }
 
@@ -34,76 +36,40 @@
   text-decoration: none;
 }
 
-.logoSub{
-  color: #555555;
-  font-size: 16px;
-  margin-top: -5px
-}
-
-.search{
-  border-radius: 8px;
-  margin-top: 30px;
-  width: 400px;
-  height: 60px;
-  background-color: #F0F0F0;
-}
-
-.search1{
-  margin-top: 15px;
-  margin-left: 20px;
-}
-
-
-.search2{
-  position: absolute;
-  margin-left: 10px;
-  margin-top: 17px;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
-  background-color: #F0F0F0;
-  outline:none;
-}
-
-.extra{
-  margin-top: 30px;
-  width: 160px;
-}
-
 .enter{
   margin-top: 30px;
   height: 60px;
   width: 220px;
-  background: linear-gradient(94.97deg, #04CE9B 0%, #64E408 100%);
+  background-color: white;
+  border: 1px solid #C92723;
   border-radius: 8px;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
 }
 
 .btnText{
   margin-left: 5px;
   margin-right: 10px;
-  color: white;
+  color: #C92723;
+}
+
+.enter:hover{
+  border: 1px solid #ffbebd;
 }
 
 .btnIcon{
   margin-right: 5px;
 }
 
-.enter4{
+.mosru{
   margin-top: 30px;
-  height: 60px;
-  width: 220px;
-  border: solid 1px #64E408;
-  border-radius: 8px;
-  background-color: white;
+  width: 150px;
 }
 
-.btnText4{
-  margin-left: 5px;
-  margin-right: 10px;
-  color: #64E408;
+.dep{
+  margin-top: 30px;
+  width: 200px;
+}
+
+.mosprom{
+  margin-top: 50px;
+  width: 170px;
 }

@@ -15,11 +15,11 @@
   padding: 4px 10px;
   margin-right: 10px;
   transition: 0.3s;
-  --color-active:#99ff91;
+  --color-active:#ff0000;
 }
 
 .link:hover {
-  color: #379e2f;
+  color: #ff5b5b;
 }
 
 .functionContainer {

@@ -14,13 +14,13 @@ import { CustomLink } from './CustomLink/CustomLink'
     },
     {
       path: '/workers',
-      label: 'Магазины',
+      label: 'О сервисе',
       isUser: true,
       role: 3,
     },
     {
       path: '/tasks',
-      label: 'Лоты',
+      label: 'Пресс-центр',
       isUser: true,
       role: 3,
     },
@@ -31,10 +31,10 @@ import { CustomLink } from './CustomLink/CustomLink'
     //   role: 3,
     // },
     {
-      path: '/tasks',
-      label: 'аукционы',
-      isUser: false,
-      role: false,
+      path: '/',
+      label: 'Контакты',
+      isUser: true,
+      role: 3,
     },
     {
       path: '/workers',
