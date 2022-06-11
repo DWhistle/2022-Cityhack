@@ -1,0 +1,77 @@
+.headerContainer {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-left: 40px;
+  padding-right: 40px;
+  /* position: relative; */
+}
+
+.logoGroup{
+  margin-top: 8px;
+  display: flex;
+}
+
+.logo1{
+  position: relative;
+  top: 12px;
+  left: -8px;
+  width: 60px;
+  height: 80px;
+}
+
+.logo2{
+  margin-left: 10px;
+}
+
+.logoText{
+  color: #C92723;
+  font-weight: 500;
+  font-size: 60px;
+  text-decoration: none;
+}
+
+.logoText:hover{
+  color: inherit;
+  opacity: 50%;
+  text-decoration: none;
+}
+
+.enter{
+  margin-top: 30px;
+  height: 60px;
+  width: 220px;
+  background-color: white;
+  border: 1px solid #C92723;
+  border-radius: 8px;
+}
+
+.btnText{
+  margin-left: 5px;
+  margin-right: 10px;
+  color: #C92723;
+}
+
+.enter:hover{
+  border: 1px solid #ffbebd;
+}
+
+.btnIcon{
+  margin-right: 5px;
+}
+
+.mosru{
+  margin-top: 40px;
+  width: 100px;
+}
+
+.dep{
+  margin-top: 40px;
+  width: 150px;
+}
+
+.mosprom{
+  margin-top: 50px;
+  width: 130px;
+}

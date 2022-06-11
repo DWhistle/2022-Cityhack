@@ -1,0 +1,165 @@
+.greetContainer {
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* BANNER */
+
+.banner{
+  background-color: #C92723;
+}
+
+.textBanner{
+  color: white;
+  margin-left: 240px;
+  margin-top: 250px;
+  margin-bottom: 240px;
+}
+
+.textBanner h1{
+  font-size: 75px;
+  font-weight: bold;
+}
+
+/* POINTS */
+
+.points{
+  background-color: #F9F7F7;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.point{
+  margin-left: 20px;
+  width: 600px;
+  height: 100px;
+  line-height: 100px;
+  border-bottom: none;
+  border-top: none;
+  border-right: none;
+  border-left: #C92723 solid 8px;
+}
+
+.point a{
+  padding-left: 20px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #333333;
+  text-decoration: none;
+}
+
+.point a:hover{
+  color: #585858;
+  text-decoration: none;
+}
+
+/* ABOUT */
+
+.about {
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 0px 19px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.about h2{
+  font-size: 40px;
+  color: #555555;
+}
+
+.about h3{
+  margin-top: 20px;
+  font-size: 60px;
+  color:#C92723;
+}
+
+.aboutNums{
+  width: 35%;
+}
+
+.about p{
+  margin-top: 20px;
+  color: #555555;
+  font-size: 20px;
+}
+
+.aboutText{
+  padding-left: 100px;
+  border-left: #C92723 solid 8px;
+  width: 65%; 
+}
+
+/* ITEM LIST */
+
+.interHeader{
+  margin-left: 10px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.interText{
+  width: 40%;
+  margin-bottom: 30px;
+}
+
+.interHeader {
+  font-size: 20px;
+}
+
+.interHeader h1{
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.interHeader p{
+  margin-top: 40px;  
+}
+
+/* button */
+
+.enter0{
+  margin-left: 25px;
+  height: 60px;
+  width: 250px;
+  border: 1px solid #C92723;
+  background: none;
+  border-radius: 8px;
+}
+
+.btnText0{
+  font-size: 20px;
+  color:#C92723;
+  text-decoration: none;
+}
+
+.textLink{
+  color: inherit;
+  text-decoration: none;
+}
+
+.btnText0:hover{
+  color: #C92723;
+  text-decoration: none;
+}
+
+.enter0:hover{
+  color: inherit;
+  border-color: #c09797;
+  text-decoration: none;
+}
+
+.bestSellers{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
