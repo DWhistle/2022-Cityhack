@@ -36,9 +36,12 @@ docker.backend: proto.backend backend.verify
 
 docker.all: docker.backend
 
-docker.recreate:
-	cp -r proto backend/src/proto
-	docker-compose stop 
-	docker-compose rm -f db
+cleanup: 
+	@rm -rf backend/src/proto
+
+docker.recreate: cleanup
+	@cp -r proto backend/src/proto
+	@docker-compose stop 
+	@docker-compose rm -f db
 	make docker.backend flgs="--force-recreate --build"
 ####
