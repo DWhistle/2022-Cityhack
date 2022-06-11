@@ -14,7 +14,7 @@
 - [x] Логика логина => POST /api/v1/login, **form-data login:значение**
 - [x] Инфо о пользователе GET /api/v1/user, **в хедере Authorization должен лежать логин**
 - [x] Добавление/обновление пользователя POST /api/v1/user, **json запроса по модели proto/external.proto/User**
-- [x] Логика загрузки товаров(кучами) POST /api/v1/products, **json запроса по модели proto/external.proto/Product**
+- [x] Логика загрузки товаров(кучами) POST /api/v1/products, **json запроса по модели proto/external.proto/ProductRequest**
 - [x] Логика получения товаров для пользователя GET /api/v1/products,  **в хедере Authorization должен лежать логин**
 - [ ] Логика рассылок с предложением зайти на платформу + авторизация
 
