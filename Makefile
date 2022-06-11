@@ -37,6 +37,7 @@ docker.backend: proto.backend backend.verify
 docker.all: docker.backend
 
 docker.recreate: proto.backend
+	docker-compose stop 
 	docker-compose rm -f db
 	make docker.backend flgs="--force-recreate --build"
 ####

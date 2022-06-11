@@ -7,16 +7,14 @@ import (
 	"time"
 )
 
-type UserStatus string
-
 type Role string
 
-type Status string
+type UserStatus string
 
 const (
-	NEW      Status = "NEW"
-	MAILED   Status = "MAILED"
-	UPDATING Status = "JOINED"
+	NEW      UserStatus = "NEW"
+	MAILED   UserStatus = "MAILED"
+	UPDATING UserStatus = "JOINED"
 )
 
 const (
@@ -26,12 +24,12 @@ const (
 )
 
 type UserRecord struct {
-	ID        int64     `db:"id" json:"name"`
-	Login     string    `db:"login" json:"login"`
-	CreatedAt time.Time `db:"created_at" json:"created_at"`
-	Role      Role      `db:"role" json:"role"`
-	Status    Status    `db:"status" json:"status"`
-	Data      UserData  `db:"data" json:"data"`
+	ID        int64      `db:"id" json:"id"`
+	Login     string     `db:"login" json:"login"`
+	CreatedAt time.Time  `db:"created_at" json:"created_at"`
+	Role      Role       `db:"role" json:"role"`
+	Status    UserStatus `db:"status" json:"status"`
+	Data      UserData   `db:"data" json:"data"`
 }
 
 func (dd *UserData) Value() (driver.Value, error) {

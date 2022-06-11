@@ -16,8 +16,7 @@ type UserQueries struct {
 func (q *UserQueries) GetUsers() ([]models.UserRecord, error) {
 	records := []models.UserRecord{}
 
-	query := `SELECT * from users`
-	err := q.Select(&records, query)
+	err := q.Select(&records, GetUsersQuery)
 
 	if err != nil {
 		return records, err
@@ -25,15 +24,6 @@ func (q *UserQueries) GetUsers() ([]models.UserRecord, error) {
 
 	return records, nil
 }
-
-const upsertUserQuery = `INSERT INTO public.users(login, created_at, role, status, data)
-VALUES ($1, $2, $3, $4, $5)
-ON CONFLICT (login) 
-DO 
-UPDATE SET  data = $5,
-			role = $3,
-			status = $4;
-`
 
 func (q *UserQueries) Upsert(u *ext.User) error {
 	data := models.UserData{
@@ -47,15 +37,14 @@ func (q *UserQueries) Upsert(u *ext.User) error {
 	if len(u.Login) == 0 {
 		return errors.New("login cannot be empty")
 	}
-	_, err := q.Exec(upsertUserQuery, u.Login, time.Now(), u.Role.String(), u.Status.String(), &data)
+	_, err := q.Exec(UpsertUserQuery, u.Login, time.Now(), u.Role.String(), u.Status.String(), &data)
 	return err
 }
 
 func (q *UserQueries) GetByLogin(login string) (*models.UserRecord, error) {
 	record := &models.UserRecord{}
 
-	query := `SELECT * FROM users WHERE login = $1 LIMIT 1`
-	err := q.Get(record, query, login)
+	err := q.Get(record, GetUserQuery, login)
 
 	if err != nil {
 		return record, err

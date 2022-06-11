@@ -21,7 +21,7 @@ func GetEnterprises(c *fiber.Ctx) error {
 		ID:        uint64(rand.Int()),
 		CreatedAt: time.Now(),
 		CreatorId: uint64(rand.Int()),
-		Status:    "NEW",
+		Status:    "models.EnterpriseStatus(models.ADMIN)",
 		Data: models.EnterpriseData{
 			Url:   "http:123",
 			Email: "http:123",

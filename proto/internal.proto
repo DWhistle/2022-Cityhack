@@ -17,3 +17,7 @@ message UserData {
   string description = 5;
   string logo = 6;
 }
+
+message ProductData {
+  string name = 1;
+}

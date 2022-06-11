@@ -28,3 +28,11 @@ message User {
     }	
 }
 
+message ProductRequest {
+    repeated Product products = 1;
+    int32 creator = 2;
+}
+
+message Product {
+    string name = 1;
+}
