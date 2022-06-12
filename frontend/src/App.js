@@ -21,6 +21,7 @@ import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 import { allMsg } from "./redux/actions/msgAc"
 import ModerCompany from "./components/ModerCompany/ModerCompany"
 import ListModCompany from "./components/ModerCompany/ListModCom/ListModCom"
+import UploadTable from "./components/UploadTable/UploadTable"
 import UserParam from "./components/UserProfile/UserParam"
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
           <Route path="/moder" element={<ListModCompany />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
+          <Route path="/upload" element={<UploadTable />} />
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
