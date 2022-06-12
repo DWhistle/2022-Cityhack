@@ -34,7 +34,7 @@ proto.frontend:
 docker.backend:
 	docker-compose up $(flgs) app nginx db
 
-docker.all: docker.backend
+docker.all: docker.recreate docker.parser
 
 cleanup: 
 	@rm -rf backend/src/proto

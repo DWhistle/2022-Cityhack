@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"sync"
@@ -22,13 +22,13 @@ func startApi() {
 	routes.PublicRoutes(app)
 
 	app.Listen(":5000")
-	fmt.Println("Exiting api")
+	log.Println("Exiting api")
 }
 
 func startScheduler() {
 	defer wg.Done()
 	// scheduler.Start()
-	fmt.Println("Exiting scheduler")
+	log.Println("Exiting scheduler")
 }
 
 func main() {
