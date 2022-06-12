@@ -1,4 +1,4 @@
-import { ADD_USER, DEL_USER, AUTH_CHECK, SIGNIN_USER, EDIT_USER } from '../types/userTypes'
+import { ADD_USER, DEL_USER, GET_USER, SIGNIN_USER, EDIT_USER } from '../types/userTypes'
 
 export const userReducer = (state = null, action) => {
   const { type, payload } = action
@@ -12,7 +12,7 @@ export const userReducer = (state = null, action) => {
     case EDIT_USER:
       return payload
       
-    case AUTH_CHECK:
+    case GET_USER:
       return payload
 
     case SIGNIN_USER:

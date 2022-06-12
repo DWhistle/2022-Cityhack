@@ -45,7 +45,6 @@ const Signup = () => {
       role: select,
       avatar: avatar
     }))
-    dispatch(checkUser())
     navigate('/')
   }
   return (

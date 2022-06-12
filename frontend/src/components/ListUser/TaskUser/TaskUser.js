@@ -3,7 +3,7 @@ import style from './style.module.css'
 import { Link, useParams } from 'react-router-dom'
 
 
-function Task({ id, title, category, description, image, deadline, createdAt }) {
+function TaskUser({ id, title, category, description, image, deadline, createdAt }) {
 
 
   return (
@@ -36,9 +36,6 @@ function Task({ id, title, category, description, image, deadline, createdAt }) 
       </div>
       <div className={style.btnGroup2}>
       <Link className={style.linkOff} to={`/tasks/${id}`}>
-        <button type="button" className={style.join2}>
-            <span className={style.btnText}>Запросить цену</span>
-        </button>
       </Link>
       </div>
 
@@ -46,4 +43,4 @@ function Task({ id, title, category, description, image, deadline, createdAt }) 
   )
 }
 
-export default Task
+export default TaskUser

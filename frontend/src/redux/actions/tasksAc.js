@@ -11,11 +11,11 @@ export const allTasks = () => (dispatch) => {
     let data = [
       {
         id: 1,
-        title: 'Греческая ваза',
+        title: 'Прицеп бортовой двухосный',
         category: 'Антиквариат',
         description: 'Ваза I в до н.э., растоможена. Достал со дна политик.',
         deadline: '2022-04-24 16:30:00',
-        image: '/img/lot1.png',
+        image: '/img/basiccard.png',
         isDone: false,
         status: 1,
         owner: 1,
@@ -29,11 +29,11 @@ export const allTasks = () => (dispatch) => {
       },
       {
         id: 2,
-        title: 'VW Golf VI GTI 2.0',
+        title: 'Прицеп бортовой двухосный',
         category: 'Автомобиль',
         description: 'Культовый хотхэтч немецкой сборки на 245 л.с.',
         deadline: '2022-04-24 16:30:00',
-        image: '/img/lot2.png',
+        image: '/img/basiccard.png',
         isDone: false,
         status: 1,
         owner: 2,
@@ -47,11 +47,11 @@ export const allTasks = () => (dispatch) => {
       },
       {
         id: 3,
-        title: 'Коллекционная монета',
+        title: 'Прицеп бортовой двухосный',
         category: 'Антиквариат',
         description: 'Швейцарская монета 20 раппенов 2011 года.',
         deadline: '2022-04-24 16:30:00',
-        image: '/img/lot3.png',
+        image: '/img/basiccard.png',
         isDone: false,
         status: 3,
         owner: 5,
@@ -65,11 +65,11 @@ export const allTasks = () => (dispatch) => {
       },
       {
         id: 4,
-        title: 'BitMonkey NFT',
+        title: 'Прицеп бортовой двухосный',
         category: 'Антиквариат',
         description: 'Известный NFT-токен на холсте маслом.',
         deadline: '2022-04-24 16:30:00',
-        image: '/img/lot4.jpeg',
+        image: '/img/basiccard.png',
         isDone: false,
         status: 3,
         owner: 5,
@@ -92,10 +92,25 @@ export const addTask = (response) => ({
   payload: response,
 })
 
-export const addTaskThunk = (task) => async (dispatch) => {
+export const addTaskThunk = (user, data) => async (dispatch) => {
 
-  const userFromBack = await axios.post('http://localhost:3001/tasks', { task })
-  const response = userFromBack.data
+  let result = {
+    products: data,
+    creator: user.id
+  }
+  console.log("TO SEND", result);
+  var requestOptions = {
+    method: 'POST',
+    headers: {  
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(result),
+    redirect: 'follow'
+  };
+
+  let userFromBack = await fetch("http://localhost:8080/api/v1/products", requestOptions)  
+  let response = await userFromBack
+  console.log("BACK:", response)
   dispatch(addTask(response))
 }
 
@@ -116,6 +131,19 @@ export const filteredTask = (data) => (dispatch) => {
     type: FILTER_TASK,
     payload: data
   })
+}
+
+export const testTaskThunk = (data) => async (dispatch) => {
+  var requestOptions = {
+    method: 'GET',
+    headers: {
+      'Authorization': "admin"
+    },
+    redirect: 'follow'
+  };
+  let userFromBack = await fetch("http://localhost:8080/api/v1/products", requestOptions)  
+  let response = await userFromBack.json();
+  console.log("BACK:", response)
 }
 
 export const searchTask = (data) => (dispatch) => {

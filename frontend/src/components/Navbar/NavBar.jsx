@@ -7,53 +7,23 @@ import { CustomLink } from './CustomLink/CustomLink'
 
   const linksList = [
     {
-      path: '/create',
-      label: 'Создать лот',
-      isUser: true,
-      role: 2,
-    },
-    {
-      path: '/workers',
-      label: 'О сервисе',
-      isUser: true,
-      role: 3,
-    },
-    {
-      path: '/tasks',
-      label: 'Пресс-центр',
-      isUser: true,
-      role: 3,
-    },
-    // {
-    //   path: '/profile',
-    //   label: 'Личный кабинет',
-    //   isUser: true,
-    //   role: 3,
-    // },
-    {
-      path: '/',
-      label: 'Контакты',
-      isUser: true,
-      role: 3,
-    },
-    {
-      path: '/workers',
-      label: 'о сервисе',
+      path: '/items',
+      label: 'Товары',
       isUser: false,
-      role: false,
+      role: 3,
     },
-    // {
-    //   path: '/signin',
-    //   label: 'Войти',
-    //   isUser: false,
-    //   role: false,
-    // },
-    // {
-    //   path: '/signup',
-    //   label: 'Зарегистрироваться',
-    //   isUser: false,
-    //   role: false,
-    // },
+    {
+      path: '/moder',
+      label: 'Компании',
+      isUser: false,
+      role: 3,
+    },
+    {
+      path: '/create',
+      label: 'Добавить товар',
+      isUser: true,
+      role: 3,
+    },
   ]
 function NavBar() {
   const [links, setLinks] = useState(linksList)
@@ -74,15 +44,15 @@ function NavBar() {
       <div className={style.navBar}>
 
         {links.map((el) =>
-          !!user === el.isUser
-            ?
-            (user?.role === el.role || user?.role === 2 || !!user === el.role) && 
-            (
-                <CustomLink key={el.path} to={el.path} className={style.link}>
-                  {el.label}
-                </CustomLink>
-              )
-            : ''
+          user == null
+            ? (el.isUser == false && (
+              <CustomLink key={el.path} to={el.path} className={style.link}>
+                {el.label}
+              </CustomLink>
+            ))
+            : <CustomLink key={el.path} to={el.path} className={style.link}>
+                {el.label}
+              </CustomLink>
         )}
 
         {/* {user && (

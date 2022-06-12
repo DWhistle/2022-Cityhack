@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 
 axios.defaults.withCredentials = true // куки отсылает на бэк
-axios.defaults.baseURL = 'http://localhost:3001' // дляя аксиоса автоматически подставляет
+axios.defaults.baseURL = 'localhost:8080' // дляя аксиоса автоматически подставляет
 
 ReactDOM.render(
   <React.StrictMode>

@@ -42,6 +42,12 @@ services:
     dns:
       - 8.8.8.8
       - 4.4.4.4
+
+  client:
+    build: 
+      context: frontend
+    ports:
+      - 3000:3000
   
   selenium:
     image: seleniarm/standalone-chromium:4.1.2-20220227

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import {signinUser}  from '../../../redux/actions/userAction'
+import {getUser, signinUser}  from '../../../redux/actions/userAction'
 import style from './style.module.css'
+import * as XLSX from 'xlsx/xlsx.mjs';
 
 const Signin = () => {
   const [log, setLog] = useState({
@@ -26,11 +27,12 @@ const Signin = () => {
   const inputLogChange = (e) => {
     setLog((prev) => ({...prev, [e.target.name] : e.target.value}))
   }
-  console.log(log);
-
+  
   const logHandler = (e) => {
     e.preventDefault()
-    dispatch(signinUser(log)) 
+    console.log(log);
+    dispatch(signinUser({ login: log.email })) 
+    dispatch(getUser())
     navigate('/')
   }
 
@@ -48,6 +50,37 @@ if(e.target.innerText === 'Модератор'){
 }
 }
 
+const [items, setItems] = useState([]);
+
+const readExcel = (file) => {
+  const promise = new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsArrayBuffer(file);
+
+    fileReader.onload = (e) => {
+      const bufferArray = e.target.result;
+
+      const wb = XLSX.read(bufferArray, { type: "buffer" });
+
+      const wsname = wb.SheetNames[0];
+
+      const ws = wb.Sheets[wsname];
+
+      const data = XLSX.utils.sheet_to_json(ws);
+
+      resolve(data);
+    };
+
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+
+  promise.then((d) => {
+    setItems(d);
+  });
+};
+console.log(items);
   return (
     <div className={style.signinContainer}>
     <form className={style.form} onSubmit={(e) => logHandler(e)}>
@@ -64,7 +97,7 @@ if(e.target.innerText === 'Модератор'){
       </div>
       <div className={style.inputContainer}>
         <input
-          type="email"
+          type=""
           name="email"
           value={log.email}
           placeholder={'Введите логин'}
@@ -74,7 +107,7 @@ if(e.target.innerText === 'Модератор'){
       </div>
       <div className={style.inputContainer}>
         <input 
-          type="password"
+          type=""
           name="password"
           value={log.password}
           placeholder={'Введите пароль'}
@@ -87,7 +120,7 @@ if(e.target.innerText === 'Модератор'){
           Продолжить
         </button>
       </div>
-    </form>
+    </form>     
     </div>
   )
 }

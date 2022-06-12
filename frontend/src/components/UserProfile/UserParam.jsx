@@ -2,25 +2,29 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import { editUser, getUser } from '../../redux/actions/userAction'
+import { getAllUsers } from '../../redux/actions/usersAc'
 import UserList from '../ListUser/ListUser'
 import style from './style.module.css'
+import { useParams } from 'react-router-dom'
 
-const UserProfile = () => {
-  const dispatch = useDispatch()
+const UserParam = () => {
   const [isEdit, setIsEdit] = useState(false)
+  
+    useEffect(() => {
+      dispatch(getAllUsers())
+    }, [isEdit])
+  
+  const { id } = useParams()
+
+  const users = useSelector(store => store.users)
+
+  const user = users.filter(el => el.id == id)[0]
+  
+  const dispatch = useDispatch()
+  
 
   const navigate = useNavigate()
 
-
-  useEffect(() => {
-    console.log("LOG")
-    dispatch(getUser())
-  }, [isEdit])
-
-
-  const user = useSelector(store => store.user)
-  
-  console.log(user)
   const data ={
    logo: "/img/moslogo.png"
   }
@@ -64,11 +68,10 @@ const UserProfile = () => {
       status: user.status
     }
     dispatch(editUser(data))
-    navigate('/profile')
-    dispatch(getUser())
+    dispatch(getAllUsers())
     setTimeout(() => {
       setIsEdit(false);
-    }, 1000);
+    }, 1500);
   }  
 
   const cancelEdit = (e) => {
@@ -150,6 +153,8 @@ const UserProfile = () => {
                 </div>
                 <button className={style.btn} type="submit">Отправить</button>
                 <button onClick={(e) => cancelEdit(e)}className={style.btn} type="click">Отменить</button>
+      
+                
               </form>
             </div>
           )}
@@ -157,13 +162,10 @@ const UserProfile = () => {
           <div className={style.list}>
             <UserList></UserList>
           </div>
-      
-      
-      
         </div>
     </div>
 
   )
 }
 
-export default UserProfile
+export default UserParam
