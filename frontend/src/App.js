@@ -5,7 +5,7 @@ import { Routes, Route, useLocation } from "react-router-dom"
 import Signin from "./components/Authentication/Signin/Signin"
 import Signup from "./components/Authentication/Signup/Signup"
 import Signout from "./components/Authentication/Signout/Signout"
-import { checkUser, delUser } from "./redux/actions/userAction"
+import { checkUser, delUser, getUser } from "./redux/actions/userAction"
 import Header from "./components/Header/Header"
 import Greet from "./components/Greet/Greet"
 import Footer from "./components/Footer/Footer"
@@ -30,7 +30,8 @@ function App() {
     }, [pathname]);
   }
   useScrollToTop()
-  
+
+
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
 

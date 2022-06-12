@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import {signinUser}  from '../../../redux/actions/userAction'
+import {getUser, signinUser}  from '../../../redux/actions/userAction'
 import style from './style.module.css'
 
 const Signin = () => {
@@ -31,6 +31,7 @@ const Signin = () => {
     e.preventDefault()
     console.log(log);
     dispatch(signinUser({ login: log.email })) 
+    dispatch(getUser())
     navigate('/')
   }
 

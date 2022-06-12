@@ -39,10 +39,15 @@ a{
 }
 
 a:hover{
-  color: #585858;
+  color: red;
   text-decoration: none;
 }
 
 .info{
   margin-top: 30px;
+}
+
+.greatContainer{
+  display: flex;
+  flex-direction: column;
 }

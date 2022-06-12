@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './style.module.css'
-import { useSelector } from 'react-redux'
-import Task from '../TaskPage/TaskList/Task/Task'
+import { useDispatch, useSelector } from 'react-redux'
 import TaskUser from './TaskUser/TaskUser'
 
 function UserList() {
+  const dispatch = useDispatch()
   const tasks = useSelector(store => store.tasks)
 
+  
   return (
     <>{tasks.length === 0 &&
       <div className={style.noTask}>Упс, по такой категории задач нету !</div>

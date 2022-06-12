@@ -63,50 +63,35 @@ export const getUser = () => async (dispatch) => {
   var requestOptions = {
     method: 'GET',
     headers: {
-      'Authorization': dispatch
+      'Authorization': "admin"
     },
     redirect: 'follow'
   };
   let userFromBack = await fetch("http://localhost:8080/api/v1/user", requestOptions)  
   let response = await userFromBack.json();
+  console.log("RESPONSE", response)
   dispatch(getUSerAction(response))
 }
 
 export const editUser = (data) => async(dispatch) => {
-  try {
-    const reductUser = await editUserToServer(data)
-    dispatch({
-      type: EDIT_USER,
-      payload: reductUser
-    })
-  } catch (err) {
-    
-    console.log(err);
-  }
+  console.log(data);
+  var requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+    redirect: 'follow'
+  };
+
+  let userFromBack = await fetch("http://localhost:8080/api/v1/user", requestOptions)  
+  let response = await userFromBack.json()
+  dispatch(editUserToServer(response))
+  console.log("RESPONSE", response);
 }
 
 // редактировать
-export const editUserToServer = async (data) => {
-  // const response = await fetch('http://localhost:3001/users/edit/'+ data.id, {
-  //   method: 'PATCH',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Accept': 'application/json'
-  //   },
-  //   credentials: 'include',
-  //   body: JSON.stringify(data)
-  // })
-  // if (response.ok) {
-  //   return await response.json()
-  // } else {
-  //   throw Error('Noooooooooooo :(((')
-  // }
-  return {
-    id: 1,
-    name: 'Федор Достоевский',
-    resume: 'Музей Русского импрессионизма',
-    email: 'impress@gmail.com',
-    role: 3,
-    avatar: '/img/ava0.png',
-  }
-}
+export const editUserToServer = async (response) => ({
+  type: EDIT_USER,
+  payload: response,
+})
