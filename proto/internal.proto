@@ -20,4 +20,7 @@ message UserData {
 
 message ProductData {
   string name = 1;
+  string description = 2;
+  string img = 3;
+  string category = 4;
 }

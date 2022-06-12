@@ -17,21 +17,23 @@ CREATE TABLE users (
 	PRIMARY KEY (login, id)
 );
 
+CREATE TABLE okpd2 (
+  id SERIAL,
+  number varchar(40) UNIQUE,
+  name VARCHAR(1000),
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE products (
 	id SERIAL PRIMARY KEY,
 	creator_id int,
 	created_at TIMESTAMP,
 	status product_status NOT NULL,
+	okpd2 varchar(40) NOT NULL,
 	data JSONB NOT NULL,
-	CONSTRAINT fk_uid 
-	FOREIGN KEY(creator_id) REFERENCES users(id)
-);
-
-CREATE TABLE okpd2 (
-  id SERIAL,
-  number varchar(40),
-  name VARCHAR(1000),
-  PRIMARY KEY (id)
+	CONSTRAINT fk_uid
+	FOREIGN KEY(creator_id) REFERENCES users(id),
+	FOREIGN KEY(okpd2) REFERENCES okpd2(number)
 );
 
 COPY okpd2(number, name)

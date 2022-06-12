@@ -37,6 +37,10 @@ message ProductRequest {
 
 message Product {
     string name = 1;
+    string okpd2 = 2;
+    string description = 3;
+    string img = 4;
+    string category = 5;
 }
 
 message ChangeStatusRequest {
