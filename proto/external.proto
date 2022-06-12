@@ -28,6 +28,7 @@ enum UserStatus {
     APPROVED = 2;
     MAILED = 3;
     JOINED = 4;
+    REJECTED = 5;
 }	
 
 message ProductRequest {
@@ -46,4 +47,5 @@ message Product {
 message ChangeStatusRequest {
     UserStatus status = 1;
     string user = 2;
+    string reason = 3;
 }

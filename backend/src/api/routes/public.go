@@ -14,6 +14,7 @@ func PublicRoutes(a *fiber.App) {
 	users.Get("/", controllers.GetUserByLogin)
 	users.Post("/", controllers.AddUser)
 	users.Post("/status", controllers.ChangeUserStatus)
+	users.Get("/all", controllers.GetUsers)
 
 	route.Post("/login", controllers.Login)
 

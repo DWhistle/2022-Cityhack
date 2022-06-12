@@ -48,8 +48,8 @@ func (q *UserQueries) GetByLogin(login string) (*models.UserRecord, error) {
 	return record, err
 }
 
-func (q *UserQueries) UpdateStatus(login string, status ext.UserStatus) error {
-	_, err := q.Exec(UpdateUserStatusQuery, status.String(), login)
+func (q *UserQueries) UpdateStatus(login string, status ext.UserStatus, rejectReason string) error {
+	_, err := q.Exec(UpdateUserStatusQuery, status.String(), login, rejectReason)
 	return err
 }
 

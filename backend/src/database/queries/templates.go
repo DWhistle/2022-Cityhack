@@ -20,6 +20,6 @@ const GetUsersToMailQuery = `SELECT * from users WHERE status = 'APPROVED'`
 
 const GetUserProductsQuery = `SELECT * from products where creator_id = $1`
 
-const UpdateUserStatusQuery = `UPDATE users SET status = $1 WHERE login = $2`
+const UpdateUserStatusQuery = `UPDATE users SET status = $1, data = data || concat('{"reject_reason": ', $3, '}') WHERE login = $2`
 
 const GetOdkp2Query = `SELECT * from okpd2`
