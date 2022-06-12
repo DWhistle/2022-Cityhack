@@ -44,4 +44,8 @@ docker.recreate: cleanup
 	@docker-compose stop 
 	@docker-compose rm -f db
 	make docker.backend flgs="--force-recreate --build"
+
+docker.parser: 
+	@docker-compose stop selenium parser
+	docker-compose up --build --force-recreate selenium parser
 ####

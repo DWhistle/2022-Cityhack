@@ -2,33 +2,35 @@
   height: 120px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  align-items: center;
   padding-left: 40px;
   padding-right: 40px;
   /* position: relative; */
 }
 
 .logoGroup{
-  margin-top: 8px;
   display: flex;
+  margin-bottom: 10px;
 }
 
 .logo1{
   position: relative;
-  top: 12px;
+  top: 8px;
   left: -8px;
-  width: 60px;
-  height: 80px;
+  width: 27px;
+  height: 35px;
 }
 
 .logo2{
-  margin-left: 10px;
+
+  margin-left: 5px;
 }
 
 .logoText{
   color: #C92723;
-  font-weight: 500;
-  font-size: 60px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
   text-decoration: none;
 }
 
@@ -39,15 +41,15 @@
 }
 
 .enter{
-  margin-top: 30px;
-  height: 60px;
-  width: 220px;
+  width: 180px;
+  height: 54px;
   background-color: white;
   border: 1px solid #C92723;
   border-radius: 8px;
 }
 
 .btnText{
+  font-size: 16px;
   margin-left: 5px;
   margin-right: 10px;
   color: #C92723;
@@ -62,24 +64,21 @@
 }
 
 .mosru{
-  margin-top: 40px;
-  width: 100px;
+  width: 76px;
 }
 
 .dep{
-  margin-top: 40px;
-  width: 150px;
+  width: 144px;
 }
 
 .mosprom{
-  margin-top: 50px;
-  width: 130px;
+  width: 109px;
 }
 
 .exit{
   margin-top: 30px;
-  height: 60px;
-  width: 100px;
+  width: 180px;
+  height: 54px;
   background-color: white;
   border: 1px solid #C92723;
   border-radius: 8px;

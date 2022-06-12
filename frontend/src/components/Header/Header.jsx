@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { delUser } from '../../redux/actions/userAction'
-// import { useSelector } from 'react-redux'
 import NavBar from '../Navbar/NavBar'
 import style from './style.module.css'
 

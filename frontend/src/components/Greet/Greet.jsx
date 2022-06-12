@@ -19,17 +19,23 @@ function Greet() {
                 <h1>возможность развития Москвы</h1>
               </div>
             </div>
-
+            
             <div className={style.points}>
+            <div className={style.busLine}>
+              </div>
               <div className={style.point}>
                 <a href='/'>
                   Каталог продукции и услуг
                 </a>
               </div>
+              <div className={style.busLine}>
+              </div>
               <div className={style.point}>
                 <a href='/'>
                   Государственная поддержка
                 </a>
+              </div>
+              <div className={style.busLine}>
               </div>
               <div className={style.point}>
                 <a href='/'>
