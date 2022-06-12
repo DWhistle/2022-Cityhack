@@ -29,11 +29,11 @@ function Header() {
 
       <NavBar />
 
-      <div>
+      {/* <div>
         <a href="https://www.mos.ru">
           <img className={style.mosru} src='/img/mosru.png' alt=''/>
         </a>
-      </div>
+      </div> */}
 
       <div>
         <a href="https://www.mos.ru/dipp/">
