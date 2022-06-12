@@ -19,6 +19,8 @@ import { allComments } from "./redux/actions/commentsAc"
 import { allFeedbacks } from "./redux/actions/feedbacksAc"
 import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 import { allMsg } from "./redux/actions/msgAc"
+import ModerCompany from "./components/ModerCompany/ModerCompany"
+import ListModCompany from "./components/ModerCompany/ListModCom/ListModCom"
 
 function App() {
 
@@ -53,6 +55,7 @@ function App() {
         <Header />
         <Routes>          
           <Route path="/" element={<Greet />} />
+          <Route path="/moder" element={<ListModCompany />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
           <Route path="create" element={<CreateTask />} />
