@@ -22,6 +22,7 @@ import { allMsg } from "./redux/actions/msgAc"
 import ModerCompany from "./components/ModerCompany/ModerCompany"
 import ListModCompany from "./components/ModerCompany/ListModCom/ListModCom"
 import UploadTable from "./components/UploadTable/UploadTable"
+import UserParam from "./components/UserProfile/UserParam"
 
 function App() {
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
           <Route path="items/:id" element={<CurrentTask />} />
+          <Route path="moder/user/:id" element={<UserParam />} />
           {user ? (
             <Route path="signout" element={<Signout />} />
           ) : (

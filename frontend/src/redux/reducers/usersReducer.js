@@ -1,5 +1,5 @@
 
-import { ALL_USERS } from '../types/usersTypes'
+import { ALL_USERS, CHANGE_STATUS } from '../types/usersTypes'
 import { SEARCH_WORKER } from '../types/userTypes'
 
 
@@ -8,6 +8,10 @@ export const usersReducer = (state = [], action) => {
 
   switch (type) {
     case ALL_USERS: {
+      return payload
+    }
+
+    case CHANGE_STATUS: {
       return payload
     }
 

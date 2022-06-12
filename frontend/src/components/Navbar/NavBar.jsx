@@ -7,14 +7,14 @@ import { CustomLink } from './CustomLink/CustomLink'
 
   const linksList = [
     {
-      path: '/workers',
-      label: 'О сервисе',
+      path: '/items',
+      label: 'Товары',
       isUser: false,
       role: 3,
     },
     {
-      path: '/workers',
-      label: 'Пресс-центр',
+      path: '/moder',
+      label: 'Компании',
       isUser: false,
       role: 3,
     },

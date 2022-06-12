@@ -34,12 +34,29 @@ func AddUser(c *fiber.Ctx) error {
 	}
 }
 
+func GetUsers(c *fiber.Ctx) error {
+
+	conn, _ := database.OpenConnection()
+	ur, err := conn.UserQueries.GetUsers()
+
+	if err != nil {
+		return c.Status(500).SendString(err.Error())
+	} else {
+		return c.JSON(fiber.Map{
+			"users": ur,
+		})
+	}
+}
+
 func ChangeUserStatus(c *fiber.Ctx) error {
 	var req ext.ChangeStatusRequest
 
 	err := protojson.Unmarshal(c.Body(), &req)
 	if err != nil {
 		return c.Status(400).SendString(err.Error())
+	}
+	if req.Status == ext.UserStatus_REJECTED && len(req.Reason) == 0 {
+		return c.Status(400).SendString("Rejection should have reason")
 	}
 
 	conn, _ := database.OpenConnection()
@@ -48,7 +65,7 @@ func ChangeUserStatus(c *fiber.Ctx) error {
 	if err != nil {
 		return c.SendStatus(404)
 	}
-	err = conn.UserQueries.UpdateStatus(req.User, req.Status)
+	err = conn.UserQueries.UpdateStatus(req.User, req.Status, req.Reason)
 
 	if err != nil {
 		return c.Status(500).SendString(err.Error())

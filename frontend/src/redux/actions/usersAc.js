@@ -1,80 +1,42 @@
-import { ALL_USERS } from '../types/usersTypes'
+import { ALL_USERS, CHANGE_STATUS } from '../types/usersTypes'
 import { SEARCH_WORKER } from '../types/userTypes'
 
-export const getAllUsers = () => (dispatch) => {
-
-  // fetch('http://localhost:3001/users')
-  //   .then(res => res.json())
-  //   .then(data => dispatch({
-  //     type: ALL_USERS,
-  //     payload: data
-  //   }))
-    let data = [
-      {
-        id: 1,
-        name: 'Слава К.',
-        email: 'merch@gmail.com',
-        role: 2,
-        avatar: '/img/ava1.png',
-        password: '123',
-        resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        createdAt: '2013-10-27 02:00:00',
-        updatedAt: '2013-10-27 02:00:00',
-      },
-      {
-        id: 2,
-        name: 'КФХ “АгроФуд"',
-        email: 'merch@gmail.com',
-        role: 2,
-        avatar: '/img/ava2.png',
-        password: '123',
-        resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        createdAt: '2013-10-27 02:00:00',
-        updatedAt: '2013-10-27 02:00:00',
-      },
-      {
-        id: 3,
-        name: 'Anonimus #0570',
-        email: 'merch@gmail.com',
-        role: 3,
-        avatar: '/img/ava3.png',
-        password: '123',
-        resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        createdAt: '2013-10-27 02:00:00',
-        updatedAt: '2013-10-27 02:00:00',
-      },
-      {
-        id: 4,
-        name: 'Tesla, Inc.',
-        email: 'merch@gmail.com',
-        role: 3,
-        avatar: '/img/ava4.png',
-        password: '123',
-        resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        createdAt: '2013-10-27 02:00:00',
-        updatedAt: '2013-10-27 02:00:00',
-      },
-      {
-        id: 5,
-        name: 'Федор Достоевский',
-        email: 'merch@gmail.com',
-        role: 3,
-        avatar: '/img/ava0.png',
-        password: '123',
-        resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        createdAt: '2013-10-27 02:00:00',
-        updatedAt: '2013-10-27 02:00:00',
-      }
-    ];
-    dispatch({
-      type: ALL_USERS,
-      payload: data
-    })
-}
-
-export const searchUser = (data) => (dispatch) => {
-  dispatch({
-    type: SEARCH_WORKER,
+export const getAllUsersAction = (data) => ({
+    type: ALL_USERS,
     payload: data
-  })
+})
+
+export const getAllUsers = () => async (dispatch) => {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  let userFromBack = await fetch("http://localhost:8080/api/v1/user/all", requestOptions)  
+  let response = await userFromBack.json();
+  console.log("ALL USERS", response)
+  dispatch(getAllUsersAction(response.users))
 }
+
+
+export const changeStatus = (data) => async(dispatch) => {
+  console.log(data);
+  var requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+    redirect: 'follow'
+  };
+
+  let userFromBack = await fetch("http://localhost:8080/api/v1/user/status", requestOptions)  
+  let response = await userFromBack
+  // dispatch(changeStatusToServer(response))
+  console.log("RESPONSE", response);
+}
+
+// редактировать
+export const changeStatusToServer = async (response) => ({
+  type: CHANGE_STATUS,
+  payload: response,
+})

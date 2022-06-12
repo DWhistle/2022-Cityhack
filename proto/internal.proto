@@ -16,8 +16,12 @@ message UserData {
   string inn = 4;
   string description = 5;
   string logo = 6;
+  string reject_reason = 7;
 }
 
 message ProductData {
   string name = 1;
+  string description = 2;
+  string img = 3;
+  string category = 4;
 }

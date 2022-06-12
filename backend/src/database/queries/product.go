@@ -18,8 +18,12 @@ func (q *ProductQueries) InsertBatch(creatorId int32, prodExt []*ext.Product) er
 		products[i] = models.ProductRecord{
 			Status:    "NEW",
 			CreatorId: creatorId,
+			Okpd2:     p.Okpd2,
 			Data: models.ProductData{
-				Name: p.Name,
+				Name:        p.Name,
+				Description: p.Description,
+				Img:         p.Img,
+				Category:    p.Category,
 			},
 		}
 	}

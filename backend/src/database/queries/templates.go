@@ -8,8 +8,8 @@ UPDATE SET  data = $5,
 			role = $3,
 			status = $4;`
 
-const UpsertProductQuery = `INSERT INTO products (creator_id, created_at, status, data) 
-VALUES (:creator_id, Now(), :status, :data)
+const UpsertProductQuery = `INSERT INTO products (creator_id, created_at, status, okpd2, data) 
+VALUES (:creator_id, Now(), :status, :okpd2, :data)
 `
 
 const GetUserQuery = `SELECT * FROM users WHERE login = $1 LIMIT 1`
@@ -20,6 +20,6 @@ const GetUsersToMailQuery = `SELECT * from users WHERE status = 'APPROVED'`
 
 const GetUserProductsQuery = `SELECT * from products where creator_id = $1`
 
-const UpdateUserStatusQuery = `UPDATE users SET status = $1 WHERE login = $2`
+const UpdateUserStatusQuery = `UPDATE users SET status = $3, data = jsonb_set(data, '{reject_reason}', to_jsonb($2::text), true) WHERE login = $1`
 
 const GetOdkp2Query = `SELECT * from okpd2`
