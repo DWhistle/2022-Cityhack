@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ModerCompany from '../ModerCompany'
 import style from './style.module.css'
+import { useSelector } from 'react-redux'
 
 
 const ListModCompany = () => {
-  const list =[1,2,3]
+  const users = useSelector(store => store.users)
+  useEffect(() => {
+  }, [users])
+  
+  console.log("USERS IN LIST", users);
   return(
     <>
-    {list.length === 0 && 
+    {users.length === 0 && 
     <div> Список компаний пуст</div>
     }
-    {list && (
+    {users != null && (
       <div className={style.ListContainer}>
-        {list.map((el)=> <ModerCompany className={style.moder} key={el}/>)}
+        {users.map((user) => <ModerCompany {...user} key={user.id}/>)}
       </div>
     )
-
+      
     }
     </>
 )

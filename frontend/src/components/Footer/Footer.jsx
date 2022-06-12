@@ -1,10 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import style from './style.module.css'
 
 function Footer() {
-  const tasks = useSelector(store => store.tasks)
 
   return (
     <>
