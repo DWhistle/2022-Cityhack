@@ -84,7 +84,7 @@ function Greet() {
               </div>
               <div>
                   <button type="button" className={style.enter0}>
-                      <Link className={style.btnText0} to='/tasks'>
+                      <Link className={style.btnText0} to='/items'>
                         <span>Смотреть все товары</span>                    
                       </Link>
                   </button>

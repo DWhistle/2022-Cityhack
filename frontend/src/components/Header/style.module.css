@@ -75,3 +75,16 @@
   margin-top: 50px;
   width: 130px;
 }
+
+.exit{
+  margin-top: 30px;
+  height: 60px;
+  width: 100px;
+  background-color: white;
+  border: 1px solid #C92723;
+  border-radius: 8px;
+}
+
+.exit:hover{
+  border: 1px solid #ffbebd;
+}

@@ -26,11 +26,11 @@ const Signin = () => {
   const inputLogChange = (e) => {
     setLog((prev) => ({...prev, [e.target.name] : e.target.value}))
   }
-  console.log(log);
-
+  
   const logHandler = (e) => {
     e.preventDefault()
-    dispatch(signinUser(log)) 
+    console.log(log);
+    dispatch(signinUser({ login: log.email })) 
     navigate('/')
   }
 
@@ -64,7 +64,7 @@ if(e.target.innerText === 'Модератор'){
       </div>
       <div className={style.inputContainer}>
         <input
-          type="email"
+          type=""
           name="email"
           value={log.email}
           placeholder={'Введите логин'}
@@ -74,7 +74,7 @@ if(e.target.innerText === 'Модератор'){
       </div>
       <div className={style.inputContainer}>
         <input 
-          type="password"
+          type=""
           name="password"
           value={log.password}
           placeholder={'Введите пароль'}

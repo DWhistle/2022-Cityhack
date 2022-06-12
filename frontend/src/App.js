@@ -20,13 +20,7 @@ import { allFeedbacks } from "./redux/actions/feedbacksAc"
 import CurrentTask from "./components/TaskPage/TaskList/CurrentTask/CurrentTask"
 import { allMsg } from "./redux/actions/msgAc"
 
-const tele = window.Telegram.WebApp;
-
 function App() {
-
-  useEffect(() => {
-    tele.ready();
-  })
 
   function useScrollToTop() {
     const { pathname } = useLocation();
@@ -39,9 +33,6 @@ function App() {
   
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
-  useEffect(() => {
-    dispatch(checkUser())
-  }, [])
 
   useEffect(() => {
     dispatch(allTasks())
@@ -66,13 +57,13 @@ function App() {
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
-          <Route path="tasks/:id" element={<CurrentTask />} />
+          <Route path="items/:id" element={<CurrentTask />} />
           {user ? (
             <Route path="signout" element={<Signout />} />
           ) : (
             <Route path="signin" element={<Signin />} /> && <Route path="signup" element={<Signup />} />
           )}
-          <Route path="tasks" element={<TaskPage />} />
+          <Route path="/items" element={<TaskPage />} />
         </Routes>
         <Footer />
     </div>

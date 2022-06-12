@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_USER, DEL_USER, SIGNIN_USER, AUTH_CHECK, EDIT_USER } from '../types/userTypes'
+import { ADD_USER, DEL_USER, SIGNIN_USER, GET_USER, EDIT_USER } from '../types/userTypes'
 
 // signup - регистрация пользователя
 export const addUserAction = (response) => ({
@@ -29,7 +29,6 @@ export const delUserAction = (user) => ({
 
 export const delUser = () => (dispatch) => {
   console.log('Delete user')
-  // axios.get('http://localhost:3001/users/signout')
   dispatch(delUserAction())
 }
 
@@ -40,35 +39,54 @@ export const signinUserAction = (response) => ({
 })
 
 export const signinUser = (signinForm) => async (dispatch) => {
-  // const userFromBack = await axios.post('http://localhost:3001/users/signin', { signinForm })
-  let userFromBack = {
-    id: 1,
-    name: 'Федор Достоевский',
-    resume: 'Музей Русского импрессионизма',
-    email: 'impress@gmail.com',
-    role: 3,
-    avatar: '/img/ava0.png',
-    }
-  dispatch(signinUserAction(userFromBack))
-}
+  var data = new FormData();
+  data.append('login', signinForm.login);
+  var requestOptions = {
+    method: 'GET',
+    // body: data,
+    headers: {
+      'Authorization': "admin"
+    },
+    redirect: 'follow'
+  };
 
-// проверка пользователя
-export const checkUserAction = (response) => ({
-  type: AUTH_CHECK,
+  let userFromBack = await fetch("http://localhost:8080/api/v1/products", requestOptions)  
+  let response = await userFromBack.json();
+  console.log("BACK:", response)
+
+
+  // console.log(signinForm);
+  // var data = new FormData();
+  // data.append('login', signinForm.login);
+  // var requestOptions = {
+  //   method: 'POST',
+  //   body: data,
+  //   redirect: 'follow'
+  // };
+
+  // let userFromBack = await fetch("http://localhost:8080/api/v1/login", requestOptions)  
+  // let response = await userFromBack.json();
+  // console.log("BACK:", response)
+  dispatch(signinUserAction(response))
+} 
+
+// получить пользователя
+export const getUSerAction = (response) => ({
+  type: GET_USER,
   payload: response,
 })
 
-export const checkUser = () => async (dispatch) => {
-  // const userFromBack = await axios('http://localhost:3001/users/check')
-  let userFromBack = {
-    id: 1,
-    name: 'Федор Достоевский',
-    resume: 'Музей Русского импрессионизма',
-    email: 'impress@gmail.com',
-    role: 3,
-    avatar: '/img/ava0.png',
-  }
-  dispatch(checkUserAction(userFromBack))
+export const getUser = () => async (dispatch) => {
+  var requestOptions = {
+    method: 'GET',
+    headers: {
+      'Authorization': dispatch
+    },
+    redirect: 'follow'
+  };
+  let userFromBack = await fetch("http://localhost:8080/api/v1/user", requestOptions)  
+  let response = await userFromBack.json();
+  dispatch(getUSerAction(response))
 }
 
 export const editUser = (data) => async(dispatch) => {
