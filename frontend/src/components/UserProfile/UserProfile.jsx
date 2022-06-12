@@ -20,7 +20,7 @@ const UserProfile = () => {
    url: "http://apopov.ru", 
    inn: "213", 
    description: "Продавец", 
-   logo: "http://123.jpg"
+   logo: "/img/moslogo.png"
   }
 
   return (
@@ -29,10 +29,10 @@ const UserProfile = () => {
       <div className={style.logoName}>
     <div>
 
-      <img className={style.imgContainer} src={"/img/moslogo.png"} alt=''/>
+      <img className={style.imgContainer} src={data.logo} alt=''/>
     </div>
     <div>
-  <h1>Компания Name</h1>
+  <h1>Компания {data.name}</h1>
     </div>
     </div>
 
