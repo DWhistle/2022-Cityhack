@@ -1,0 +1,34 @@
+.container {
+  height: 600px;
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* text-align: center; */
+  margin-left: 80px;
+
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #555555;
+}
+
+.h2 {
+  margin-bottom: 30px;
+}
+
+.btn {
+  border: 1px solid #c92723;
+  border-radius: 8px;
+  width: 100px;
+  height: 54px;
+  background-color: white;
+  color: #C92723;
+}
+
+.desc{
+  margin-bottom: 79px;
+}
