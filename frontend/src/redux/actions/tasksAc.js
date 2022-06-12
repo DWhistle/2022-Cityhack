@@ -92,10 +92,26 @@ export const addTask = (response) => ({
   payload: response,
 })
 
-export const addTaskThunk = (task) => async (dispatch) => {
+export const addTaskThunk = (user, data) => async (dispatch) => {
+  let array = []
+  data.forEach(el => array.push({name: el}))
+  let result = {
+    products: array,
+    creator: 1
+  }
+  console.log(result);
+  var requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/jsson'
+    },
+    body: JSON.stringify(result),
+    redirect: 'follow'
+  };
 
-  const userFromBack = await axios.post('http://localhost:3001/tasks', { task })
-  const response = userFromBack.data
+  let userFromBack = await fetch("http://localhost:8080/api/v1/products", requestOptions)  
+  let response = await userFromBack
+  console.log("BACK:", response)
   dispatch(addTask(response))
 }
 
@@ -116,6 +132,19 @@ export const filteredTask = (data) => (dispatch) => {
     type: FILTER_TASK,
     payload: data
   })
+}
+
+export const testTaskThunk = (data) => async (dispatch) => {
+  var requestOptions = {
+    method: 'GET',
+    headers: {
+      'Authorization': "admin"
+    },
+    redirect: 'follow'
+  };
+  let userFromBack = await fetch("http://localhost:8080/api/v1/products", requestOptions)  
+  let response = await userFromBack.json();
+  console.log("BACK:", response)
 }
 
 export const searchTask = (data) => (dispatch) => {

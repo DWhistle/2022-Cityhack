@@ -1,6 +1,9 @@
 .main{
   display: flex;
   flex-direction: column;
+    width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .mainContainer {
@@ -10,11 +13,10 @@
   box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.13);
   border-radius: 24px;
   background-color: #FAFAFA;
-  margin-bottom: 100px;
-  margin-top: 100px;
-  width: 50%;
+  margin-bottom: 50px;
+  /* width: 50%;
   margin-left: 25%;
-  margin-right: 25%;
+  margin-right: 25%; */
 }
 
 .mainContainer img{
@@ -31,11 +33,13 @@
 
 .btn {
   background: #C92723;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
+  width: 300px;
   border: none;
   border-radius: 10px;
   color: white;
   height: 65px;
+  margin-top: 20px;
 }
 
 .btn:hover {
@@ -44,6 +48,13 @@
   border-radius: 10px;
   color: rgb(255, 255, 255);
   height: 65px;
+}
+
+.btnCont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 .taskContainer {

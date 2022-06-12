@@ -2,26 +2,24 @@ import React from 'react'
 import style from './style.module.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { addTaskThunk } from '../../../redux/actions/tasksAc'
+import { useDispatch, useSelector } from 'react-redux'
+import { addTaskThunk, testTaskThunk } from '../../../redux/actions/tasksAc'
 
 function CreateTask () {
 
   const [task, setTask] = useState({})
-  const [tasks, setTasks] = useState([{title: "", description: "", category: ""}, {title: "", description: "", category: ""}])
+  const [tasks, setTasks] = useState([{title: "", description: "", category: ""}])
+  const user = useSelector((state) => state.user) 
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const inputChange = (e, index) => {
-    console.log("CHANGE", index, e.target.name, e.target.value)
+  const inputChange = (e, _index) => {
     setTasks((prev) => {
-      prev.map((el, index) => {
-        console.log("WOW")
-        return el;
-        // if(index == _index){
-        //   el[e.target.name] = e.target.value;
-        //   return el; 
-        // } else return el;
+      return prev.map((el, index) => {
+        if(index == _index){
+          el[e.target.name] = e.target.value;
+          return el; 
+        } else return el;
       })
     })
   }
@@ -29,12 +27,30 @@ function CreateTask () {
   const taskHandler = (e) => {
     e.preventDefault()
     console.log("WHAT WE GOT", tasks)
-    dispatch(addTaskThunk(task))
-    navigate('/tasks')
+    let data = tasks.map(el => el.title);
+    console.log("DATA", data, user);
+    dispatch(addTaskThunk(user, data))
+    setTasks([{title: "", description: "", category: ""}])
+    alert("Данные ушли на модерацию")
+    // navigate('/tasks')
+  }
+
+  const debugHandler = (e) => {
+    dispatch(testTaskThunk())
+    
+  }
+
+  const plusItem = (e) => {
+    e.preventDefault()
+    setTasks((prev) => {
+      let result = [...prev, {title: "", description: "", category: ""}]
+      return result 
+    })
+
   }
  
   return (
-    <div>
+    <div className={style.main}>
       {tasks.map((el, index) => 
         <div className={style.mainContainer}>
           <div className={style.taskContainer}>
@@ -67,8 +83,14 @@ function CreateTask () {
           </div>
         </div>
       )}
+      <div className={style.btnCont}>
+        <button onClick={(e) => plusItem(e)} className={style.btn} type="submit">ЕЩЕ ТОВАР</button>
 
-      <button onClick={(e) => taskHandler(e)} className={style.btn} type="submit">ОПУБЛИКОВАТЬ</button>
+        <button onClick={(e) => taskHandler(e)} className={style.btn} type="submit">ОПУБЛИКОВАТЬ</button>
+        
+        <button onClick={(e) => debugHandler(e)} className={style.btn} type="submit">DUBUG</button>
+
+      </div>
     </div>
   )
 }

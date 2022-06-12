@@ -42,31 +42,14 @@ export const signinUser = (signinForm) => async (dispatch) => {
   var data = new FormData();
   data.append('login', signinForm.login);
   var requestOptions = {
-    method: 'GET',
-    // body: data,
-    headers: {
-      'Authorization': "admin"
-    },
+    method: 'POST',
+    body: data,
     redirect: 'follow'
   };
 
-  let userFromBack = await fetch("http://localhost:8080/api/v1/products", requestOptions)  
+  let userFromBack = await fetch("http://localhost:8080/api/v1/login", requestOptions)  
   let response = await userFromBack.json();
   console.log("BACK:", response)
-
-
-  // console.log(signinForm);
-  // var data = new FormData();
-  // data.append('login', signinForm.login);
-  // var requestOptions = {
-  //   method: 'POST',
-  //   body: data,
-  //   redirect: 'follow'
-  // };
-
-  // let userFromBack = await fetch("http://localhost:8080/api/v1/login", requestOptions)  
-  // let response = await userFromBack.json();
-  // console.log("BACK:", response)
   dispatch(signinUserAction(response))
 } 
 
