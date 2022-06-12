@@ -49,7 +49,7 @@ func (q *UserQueries) GetByLogin(login string) (*models.UserRecord, error) {
 }
 
 func (q *UserQueries) UpdateStatus(login string, status ext.UserStatus, rejectReason string) error {
-	_, err := q.Exec(UpdateUserStatusQuery, status.String(), login, rejectReason)
+	_, err := q.Exec(UpdateUserStatusQuery, login, rejectReason, status.String())
 	return err
 }
 
