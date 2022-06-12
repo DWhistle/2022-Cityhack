@@ -14,10 +14,12 @@
 - [x] Логика логина => POST /api/v1/login, **form-data login:значение**
 - [x] Инфо о пользователе GET /api/v1/user, **в хедере Authorization должен лежать логин**
 - [x] Добавление/обновление пользователя POST /api/v1/user, **json запроса по модели proto/external.proto/User**
+- [x] Все пользователи GET /api/v1/user/all
 - [x] Логика загрузки товаров(кучами) POST /api/v1/products, **json запроса по модели proto/external.proto/ProductRequest**
 - [x] Логика получения товаров для пользователя GET /api/v1/products,  **в хедере Authorization должен лежать логин**
 - [x] Логика рассылок с предложением зайти на платформу **отправляем письма всем в статусе APPROVED, далее переводим в MAILED**
 - [ ] Авторизация для приходящих из рассылки
+- [x] Обновление статуса пользователя POST /api/v1/user/status, **json запроса по модели proto/external.proto/ChangeStatusRequest**
 
 #### Фронт:
 - [x] главная

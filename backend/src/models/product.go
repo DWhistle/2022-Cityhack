@@ -19,6 +19,7 @@ type ProductRecord struct {
 	ID        int64         `db:"id" json:"id"`
 	CreatedAt time.Time     `db:"created_at" json:"created_at"`
 	CreatorId int32         `db:"creator_id" json:"creator_id"`
+	Okpd2     string        `db:"okpd2" json:"okpd2"`
 	Status    ProductStatus `db:"status" json:"status"`
 	Data      ProductData   `db:"data" json:"data"`
 }

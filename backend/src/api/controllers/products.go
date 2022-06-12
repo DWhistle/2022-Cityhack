@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"fmt"
+
 	"github.com/Dwhistle/2022-CityHack/backend/src/database"
 	"github.com/Dwhistle/2022-CityHack/backend/src/models/ext"
 	"github.com/gofiber/fiber/v2"
@@ -8,22 +10,27 @@ import (
 )
 
 func GetUserProducts(c *fiber.Ctx) error {
+	fmt.Print(1234)
 	login := c.Get("Authorization")
 	if len(login) == 0 {
 		return c.SendStatus(400)
 	}
 	conn, err := database.OpenConnection()
-
+	fmt.Print(err)
 	if err != nil {
 		return Error(c, err)
 	}
+	fmt.Print(err)
 
 	user, err := conn.UserQueries.GetByLogin(login)
+	fmt.Print(user)
 	if err != nil {
 		return c.SendStatus(404)
 	}
 
 	prods, err := conn.ProductQueries.GetUserProducts(int32(user.ID))
+	fmt.Print(err)
+
 	if err != nil {
 		Error(c, err)
 	}
