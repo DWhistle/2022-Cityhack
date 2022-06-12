@@ -4,8 +4,15 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTaskThunk, testTaskThunk } from '../../../redux/actions/tasksAc'
+import okpd from './okpd.json'
+import Select from 'react-select'
 
 function CreateTask () {
+  let options = []
+  for(var i in okpd[0]){
+    if(i.length < 6) options.push({value: i, label: i + ':' + okpd[0][i]})
+  }
+  console.log(options);
 
   const [task, setTask] = useState({})
   const [tasks, setTasks] = useState([{title: "", description: "", category: ""}])
@@ -14,6 +21,7 @@ function CreateTask () {
   const dispatch = useDispatch()
 
   const inputChange = (e, _index) => {
+    console.log("EEEE", e)
     setTasks((prev) => {
       return prev.map((el, index) => {
         if(index == _index){
@@ -27,7 +35,15 @@ function CreateTask () {
   const taskHandler = (e) => {
     e.preventDefault()
     console.log("WHAT WE GOT", tasks)
-    let data = tasks.map(el => el.title);
+    let data = tasks.map(el => {
+      return {
+        name: el.title,
+        okpd2: el.category,
+        description: el.description,
+        img: '/deflogo.png',
+        category: 'category'
+      }  
+    });
     console.log("DATA", data, user);
     dispatch(addTaskThunk(user, data))
     setTasks([{title: "", description: "", category: ""}])
@@ -70,15 +86,16 @@ function CreateTask () {
               value={el.description}
               onChange={(e) => inputChange(e, index)}
             ></textarea>
-            <label className={style.label}>КАТЕГОРИЯ</label>
-            <select className={style.input} value={el.category} name='category' onChange={(e) => inputChange(e, index)}>
+            <label className={style.label}>ОКПД2</label>
+            {/* <select className={style.input} value={el.category} name='category' onChange={(e) => inputChange(e, index)}>
               <option disabled value='Выбирите категорию'>Выбирите категорию</option>
               <option selected value="Антиквариат">Техника</option>
               <option value="Искусство">Расходники</option>
               <option value="Предметы роскоши">Электроника</option>
               <option value="Техника">Легкая промышленность</option>
               <option value="Другое">Другое</option>
-            </select>
+            </select> */}
+            <Select name='category' onChange={(e) => inputChange({target: {name: 'category', value: e.value}}, index)} options={options} />
             <br/>
           </div>
         </div>

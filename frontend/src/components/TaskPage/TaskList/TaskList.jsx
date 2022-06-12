@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 function TaskList() {
   const tasks = useSelector(store => store.tasks)
+  console.log("TASKS", tasks)
 
   return (
     <>{tasks.length === 0 &&

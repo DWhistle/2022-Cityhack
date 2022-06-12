@@ -50,17 +50,6 @@ if(e.target.innerText === 'Модератор'){
 }
 }
 
-// const fileRead = () => {
-//   let filik = file
-//   let workbook = XLSX
-//   console.log(workbook);
-//   // let reader = new FileReader()
-//   // reader.readAsText(filik)
-//   // reader.onload = function(){
-//   //   console.log(reader.result);
-//   // }
-  
-// }
 const [items, setItems] = useState([]);
 
 const readExcel = (file) => {
@@ -131,14 +120,7 @@ console.log(items);
           Продолжить
         </button>
       </div>
-    </form>
-        {/* <input type="file" onChange={e => setFiles(e.target.files[0])} /> */}
-        <input type='file' accept='.xlsx, .xls' onChange={(e) => {
-          const file = e.target.files[0];
-          readExcel(file);
-        }} />
-        {/* <button onClick={fileRead}>Click</button> */}
-        
+    </form>     
     </div>
   )
 }

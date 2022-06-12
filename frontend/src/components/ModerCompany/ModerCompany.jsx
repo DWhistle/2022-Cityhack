@@ -45,7 +45,7 @@ const ModerCompany = (user) => {
 return(
   <form onSubmit={(e) => approveHandler(e)} className={style.container}>
     <div>
-      <img className={style.imgContainer} src={"/img/moslogo.png"} alt=''/>
+      <img className={style.imgContainer} src={"/img/deflogo.png"} alt=''/>
     </div>
 
     <div className={style.flextext}>
