@@ -42,3 +42,21 @@ services:
     dns:
       - 8.8.8.8
       - 4.4.4.4
+  
+  selenium:
+    image: seleniarm/standalone-chromium:4.1.2-20220227
+    ports:
+        - 4444:4444
+    shm_size: 2gb
+    privileged: true
+    environment:
+      - whitelisted-ips=
+    volumes:
+      - /dev/shm:/dev/shm
+
+  parser:
+    image: parser
+    depends_on: 
+      - selenium
+    build:
+      context: backend/parser
