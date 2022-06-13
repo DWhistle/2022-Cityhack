@@ -4,12 +4,12 @@ import style from './style.module.css'
 import { useSelector } from 'react-redux'
 
 function TaskList() {
-  const tasks = useSelector(store => store.tasks)
+  const tasks = useSelector(store => store.tasks) 
   console.log("TASKS", tasks)
 
   return (
     <>{tasks.length === 0 &&
-      <div className={style.noTask}>Упс, по такой категории задач нету !</div>
+      <div className={style.noTask}>Упс, товаров нет!</div>
     }
       {tasks && (
         <div className={style.taskListContainer}>

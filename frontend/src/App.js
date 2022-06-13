@@ -60,10 +60,9 @@ function App() {
           <Route path="/" element={<Greet />} />
           <Route path="/moder" element={<ListModCompany />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/create" element={<CreateTask />} />
+          <Route path="/create" element={<BigUpload />} />
           <Route path="/bigupload" element={<BigUpload />} />
           <Route path="/upload" element={<UploadTable />} />
-          <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
           <Route path="items/:id" element={<CurrentTask />} />
