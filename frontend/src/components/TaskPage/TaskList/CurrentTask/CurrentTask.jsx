@@ -4,7 +4,6 @@ import style from './style.module.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import FeedbackList from '../../FeedbackList/FeebackList'
-import { deleteTaskThunk } from '../../../../redux/actions/tasksAc'
 import { upTaskThunk } from '../../../../redux/actions/tasksAc';
 
 
@@ -24,10 +23,7 @@ function CurrentTask() {
     }
   }, [tasks])
 
-  const clickHandler = () => {
-    dispatch(deleteTaskThunk(id))
-    navigate('/')
-  }
+
 
   const handleMatch = () => {
     console.log('HELLO')

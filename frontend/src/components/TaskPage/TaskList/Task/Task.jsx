@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 
 
 function Task({ id, title, category, description, image, deadline, createdAt }) {
-
+  
 
   return (
     <div className={style.cardLots}>

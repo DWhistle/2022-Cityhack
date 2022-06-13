@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { allTasks, searchTask } from '../../../../redux/actions/tasksAc'
+import { allTasks } from '../../../../redux/actions/tasksAc'
 import style from './style.module.css'
 
 function Search() {
@@ -14,7 +14,7 @@ function Search() {
     if (input === '') {
       dispatch(allTasks())
     }
-    dispatch(searchTask(input))
+
   }, [input])
   return (
     <div className={style.inputContainer}>
