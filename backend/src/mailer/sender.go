@@ -44,7 +44,7 @@ func Listen(mails chan *Email) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		err = conn.UserQueries.UpdateStatus(m.User.Login, ext.UserStatus_MAILED)
+		err = conn.UserQueries.UpdateStatus(m.User.Login, ext.UserStatus_MAILED, "")
 		if err != nil {
 			log.Fatal(err)
 		}

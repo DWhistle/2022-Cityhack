@@ -9,13 +9,6 @@ import (
 
 type EnterpriseStatus string
 
-// const (
-// 	NEW      EnterpriseStatus = "NEW"
-// 	MAILED   EnterpriseStatus = "MAILED"
-// 	UPDATING EnterpriseStatus = "UPDATING"
-// 	DELETED  EnterpriseStatus = "DELETED"
-// )
-
 type EnterpriseRecord struct {
 	ID        uint64           `db:"id"`
 	CreatedAt time.Time        `db:"created_at"`

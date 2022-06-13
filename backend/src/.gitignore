@@ -1,3 +1,4 @@
 src
 *.pb.go
 proto
+.DS_Store

@@ -8,6 +8,7 @@ import (
 
 	"github.com/Dwhistle/2022-CityHack/backend/src/api"
 	"github.com/Dwhistle/2022-CityHack/backend/src/api/routes"
+	"github.com/Dwhistle/2022-CityHack/backend/src/scheduler"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 )
@@ -27,7 +28,7 @@ func startApi() {
 
 func startScheduler() {
 	defer wg.Done()
-	// scheduler.Start()
+	scheduler.Start()
 	log.Println("Exiting scheduler")
 }
 
