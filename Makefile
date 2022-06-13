@@ -1,4 +1,5 @@
-.PHONY: build run
+.PHONY: all
+all: docker.all
 
 APP_NAME = import_replacement
 BACKEND_DIR = $(PWD)/backend
@@ -32,9 +33,12 @@ proto.frontend:
 
 #### docker
 docker.backend:
-	docker-compose up $(flgs) app nginx db
+	docker-compose up -d $(flgs) app nginx db
 
-docker.all: docker.recreate docker.parser
+docker.frontend:
+	docker-compose up -d $(flgs) client
+
+docker.all: docker.recreate docker.parser docker.frontend
 
 cleanup: 
 	@rm -rf backend/src/proto
@@ -47,5 +51,5 @@ docker.recreate: cleanup
 
 docker.parser: 
 	@docker-compose stop selenium parser
-	docker-compose up --build --force-recreate selenium parser
+	docker-compose up -d --build --force-recreate selenium parser
 ####
