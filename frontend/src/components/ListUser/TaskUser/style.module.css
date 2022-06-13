@@ -9,7 +9,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 5rem;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .imgContainer {

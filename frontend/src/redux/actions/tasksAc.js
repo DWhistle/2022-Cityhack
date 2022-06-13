@@ -84,12 +84,12 @@ export const allTasks = () => async (dispatch) => {
       redirect: 'follow'
     };
     let userFromBack = await fetch("http://localhost:8080/api/v1/products/all", requestOptions)  
-    let response = await userFromBack
+    let response = await userFromBack.json()
     console.log("BACK:", response)
-    // dispatch({
-    //   type: ALL_TASKS,
-    //   payload: response
-    // })
+    dispatch({
+      type: ALL_TASKS,
+      payload: response.products
+    })
 }
 export const addTask = (response) => ({
   type: ADD_TASK,

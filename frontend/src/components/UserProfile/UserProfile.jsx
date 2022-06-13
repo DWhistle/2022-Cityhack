@@ -85,13 +85,13 @@ const UserProfile = () => {
 
   return (
     <div className={style.greatContainer}>
-
+      <div className={style.MetaContainer}>
         <div className={style.container}> 
           { user.data && !isEdit && (
             <div>
               <div className={style.logoName}>
                 <div>
-                  <img className={style.imgContainer} src={data.logo} alt=''/>
+                <img className={style.imgContainer} src="/img/deflogo.png" alt=''/>
                 </div>
                 <div>
                   <h1>{user.login}</h1>
@@ -101,12 +101,12 @@ const UserProfile = () => {
       
       
               <div className={style.info}>
-                <h2>Информация о компании</h2>
                 <p>Почта: {user.data.email}</p>
                 <p>Телефон: {user.data.phone}</p>
                 <p>Описание: {user.data.description}</p>
                 <p>ИНН: {user.data.inn}</p>
                 <a href={user.data.url}>Сайт компании</a>
+                <br/>
                 <br/>
                 <button onClick={(e) => startEdit(e)}className={style.btn} type="click">Редактировать</button>
       
@@ -127,7 +127,6 @@ const UserProfile = () => {
       
       
               <form className={style.info} onSubmit={(e) => taskHandler(e)}>
-                <h2>Информация о компании</h2>
                 <div>
                   <label>Почта: </label>
                   <input onChange={(e) => emailChange(e)} type="text" value={email}></input>
@@ -154,13 +153,20 @@ const UserProfile = () => {
             </div>
           )}
       
-          <div className={style.list}>
-            <UserList></UserList>
-          </div>
-      
       
       
         </div>
+        <div>
+          <p className={style.texts}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales augue nulla. Fusce maximus, erat vulputate tempus bibendum, libero est condimentum quam, non porta ante augue a est. Etiam a varius leo. Proin commodo quis nulla nec pulvinar. Aliquam convallis tempus arcu vitae cursus. Pellentesque sed neque fringilla, efficitur diam sit amet, pretium purus. Pellentesque id dui eget tellus dictum cursus. Donec quam leo, pharetra sit amet lorem a, molestie scelerisque nisl. Aliquam commodo sapien dolor, viverra posuere velit gravida nec.
+            <br/>
+            <br/>
+            Phasellus quis dignissim magna, placerat sodales lorem. Aenean vehicula, ex nec ornare efficitur, enim nunc suscipit ex, eget pulvinar velit mauris ac ex. Suspendisse laoreet dapibus laoreet. Aliquam volutpat nibh sit amet dolor elementum, vitae accumsan sem efficitur. Ut quis porta arcu. Morbi neque ex, volutpat sit amet ultrices non, semper in orci. Phasellus ornare sem lorem, eget malesuada ligula aliquet id. Suspendisse potenti. Donec rhoncus viverra gravida. Vivamus ipsum mauris, ornare eget urna in, sodales iaculis risus. Etiam pellentesque gravida est, at aliquam turpis volutpat a. Etiam viverra commodo tempus. Ut vestibulum aliquet ante, vel commodo erat pulvinar ut. Vivamus tempor fringilla vulputate. Proin pellentesque risus a lacus ullamcorper iaculis sed nec quam. Maecenas mollis libero efficitur felis commodo imperdiet.</p>
+        </div>
+      </div>
+          <div className={style.list}>
+            <UserList></UserList>
+          </div>
     </div>
 
   )

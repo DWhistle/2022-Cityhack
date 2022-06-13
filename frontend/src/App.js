@@ -24,6 +24,7 @@ import ListModCompany from "./components/ModerCompany/ListModCom/ListModCom"
 import UploadTable from "./components/UploadTable/UploadTable"
 import UserParam from "./components/UserProfile/UserParam"
 import BigUpload from "./components/BigUpload/BigUpload"
+import UserEmail from "./components/UserProfile/UserEmail"
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
           <Route path="profile" element={<UserProfile />} />
           <Route path="edit" element={<EditUserProfile />} />
           <Route path="items/:id" element={<CurrentTask />} />
+          <Route path="email/:id" element={<UserEmail />} />
           <Route path="moder/user/:id" element={<UserParam />} />
           {user ? (
             <Route path="signout" element={<Signout />} />

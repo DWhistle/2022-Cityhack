@@ -165,8 +165,10 @@ onDrop={e => {
 
 
       
+      {items.length > 0 && (
+        <button onClick={(e) => taskHandler(e)} className={style.btn} type="submit">ОПУБЛИКОВАТЬ</button>
 
-      <button onClick={(e) => taskHandler(e)} className={style.btn} type="submit">ОПУБЛИКОВАТЬ</button>
+      )}
 
 
     </div>

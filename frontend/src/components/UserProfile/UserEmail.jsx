@@ -7,7 +7,7 @@ import UserList from '../ListUser/ListUser'
 import style from './style.module.css'
 import { useParams } from 'react-router-dom'
 
-const UserParam = () => {
+const UserEmail = () => {
   const [isEdit, setIsEdit] = useState(false)
   
     useEffect(() => {
@@ -30,27 +30,27 @@ const UserParam = () => {
   }
 
 
-  const [email, setEmail] = useState(user.data.email)
+  const [email, setEmail] = useState(user ? user.data.email : '')
   const emailChange = (e) => {
     setEmail(e.target.value);
   }
 
-  const [phone, setPhone] = useState(user.data.phone)
+  const [phone, setPhone] = useState(user ? user.data.phone : '')
   const phoneChange = (e) => {
     setPhone(e.target.value);
   }
 
-  const [description, setDescription] = useState(user.data.description)
+  const [description, setDescription] = useState(user ? user.data.description : '')
   const descriptionChange = (e) => {
     setDescription(e.target.value);
   }
 
-  const [inn, setInn] = useState(user.data.inn)
+  const [inn, setInn] = useState(user ? user.data.inn : '')
   const innChange = (e) => {
     setInn(e.target.value);
   }
 
-  const [url, setUrl] = useState(user.data.url)
+  const [url, setUrl] = useState(user ? user.data.url : '')
   const urlChange = (e) => {
     setUrl(e.target.value);
   }
@@ -85,14 +85,15 @@ const UserParam = () => {
     e.preventDefault()
     setIsEdit(true);
   }
-  
 
 
   return (
+
     <div className={style.greatContainer}>
+
         <div className={style.MetaContainer}>
         <div className={style.container}> 
-          { user.data && !isEdit && (
+          { user ? !isEdit && (
             <div>
               <div className={style.logoName}>
                 <div>
@@ -117,8 +118,8 @@ const UserParam = () => {
       
               </div>
             </div>
-          )}
-          {user.data && isEdit && (
+          ) : ''}
+          {user ? isEdit && (
             <div>
               <div className={style.logoName}>
                 <div>
@@ -158,7 +159,7 @@ const UserParam = () => {
                 
               </form>
             </div>
-          )}
+          ) : ''}
       
         </div>
         <div>
@@ -175,6 +176,7 @@ const UserParam = () => {
     </div>
 
   )
+  
 }
 
-export default UserParam
+export default UserEmail

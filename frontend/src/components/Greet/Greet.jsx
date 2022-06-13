@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 function Greet() {
   const tasks = useSelector(store => store.tasks)
+  console.log("TASKS", tasks)
   let temp = tasks.slice(0, 3)
   return (
     <>
