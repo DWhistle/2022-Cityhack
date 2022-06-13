@@ -1,4 +1,5 @@
 .container {
+  height: 100%;
   height: 600px;
   width: 540px;
   display: flex;
@@ -14,6 +15,13 @@
   line-height: 20px;
 
   color: #555555;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+
 }
 
 .h2 {
@@ -26,9 +34,33 @@
   width: 100px;
   height: 54px;
   background-color: white;
-  color: #C92723;
+  color: #c92723;
+  margin-top: 30px;
 }
 
-.desc{
+.desc {
   margin-bottom: 79px;
+}
+
+.drop {
+  width: 500px;
+  height: 280px;
+  border: 5px dashed black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop2 {
+  width: 500px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #000000;
+  border-radius: 8px;
+}
+
+.upload{
+  margin-bottom: 60px;
 }

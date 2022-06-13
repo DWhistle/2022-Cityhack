@@ -23,6 +23,7 @@ import ModerCompany from "./components/ModerCompany/ModerCompany"
 import ListModCompany from "./components/ModerCompany/ListModCom/ListModCom"
 import UploadTable from "./components/UploadTable/UploadTable"
 import UserParam from "./components/UserProfile/UserParam"
+import BigUpload from "./components/BigUpload/BigUpload"
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/moder" element={<ListModCompany />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/create" element={<CreateTask />} />
+          <Route path="/bigupload" element={<BigUpload />} />
           <Route path="/upload" element={<UploadTable />} />
           <Route path="create" element={<CreateTask />} />
           <Route path="profile" element={<UserProfile />} />

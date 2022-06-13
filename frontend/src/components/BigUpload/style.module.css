@@ -1,0 +1,10 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.div1{
+  width: 800px;
+  border-right: 2px solid #F3E9E9;
+}
