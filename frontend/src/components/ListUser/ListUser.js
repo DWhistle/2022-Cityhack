@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import style from './style.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import TaskUser from './TaskUser/TaskUser'
+import Task from '../TaskPage/TaskList/Task/Task.jsx'
 
 function UserList() {
   const dispatch = useDispatch()
@@ -14,7 +14,7 @@ function UserList() {
     }
       {tasks && (
         <div className={style.taskListContainer}>
-          {tasks.map((el) => <TaskUser key={el.id} {...el} />)}
+          {tasks.map((el) => <Task key={el.id} {...el} />)}
         </div>
       )}
     </>

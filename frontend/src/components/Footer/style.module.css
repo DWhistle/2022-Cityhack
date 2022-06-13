@@ -1,12 +1,3 @@
-.footer {
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 50px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-}
-
 .link {
   text-decoration: none;
   color: black;
@@ -29,6 +20,8 @@
 }
 
 .container {
+  height: 242px;
+  width: 1200px;
   padding-top: 60px;
   display: flex;
   flex-direction: row;
@@ -53,12 +46,12 @@
 }
 
 .twoFlex {
-  margin-left: 99px;
+  /* margin-left: 99px; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: 150px;
-  min-width: 800px;
+  width: 800px;
   font-family: "Onest";
   font-style: normal;
   font-weight: 400;
@@ -69,7 +62,7 @@
 }
 
 .twoFlex a {
-  min-width: 300px;
+  width: 300px;
   margin-bottom: 18px;
   margin-left: 40px;
 }
@@ -79,16 +72,17 @@
 } */
 
 .treeFlex {
-  width: 300px;
-  display: flex;
-  justify-content: right;
+  /* padding-right: 2000px; */
+  /* width: 300px; */
+  /* display: flex; */
+  /* justify-content: right; */
 }
 
-.buttn {
+.btn {
   box-sizing: border-box;
   width: 180px;
   height: 54px;
-
+margin-right: 22px;
   border: 1px solid #c92723;
   border-radius: 8px;
   background: #FFF8F8;

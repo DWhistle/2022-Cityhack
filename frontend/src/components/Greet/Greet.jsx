@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 
 function Greet() {
   const tasks = useSelector(store => store.tasks)
+  console.log("TASKS", tasks)
+  let temp = tasks.slice(0, 3)
   return (
     <>
       {tasks && tasks.length > 0 &&
@@ -99,7 +101,7 @@ function Greet() {
 
             {tasks && (
               <div className={style.bestSellers}>
-                {tasks.map((el) => <Task key={el.id} {...el} />)}
+                {temp.map((el) => <Task key={el.id} {...el} />)}
               </div>
             )}
 

@@ -105,7 +105,7 @@ function CreateTask () {
 
         <button onClick={(e) => taskHandler(e)} className={style.btn} type="submit">ОПУБЛИКОВАТЬ</button>
         
-        <button onClick={(e) => debugHandler(e)} className={style.btn} type="submit">DUBUG</button>
+        {/* <button onClick={(e) => debugHandler(e)} className={style.btn} type="submit">DUBUG</button> */}
 
       </div>
     </div>

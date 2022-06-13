@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 180px;
+}
+
+
+.div1{
+  width: 800px;
+  border-right: 2px solid #F3E9E9;
+}
