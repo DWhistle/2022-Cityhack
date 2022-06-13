@@ -21,6 +21,7 @@ func PublicRoutes(a *fiber.App) {
 	products := route.Group("/products")
 	products.Post("/", controllers.CreateProductsBatch)
 	products.Get("/", controllers.GetUserProducts)
+	products.Get("/all", controllers.GetAllProducts)
 
 	route.Get("/okpd2", controllers.GetOdkp2)
 	route.Get("/ping", func(c *fiber.Ctx) error {

@@ -2,6 +2,7 @@ package mailer
 
 import (
 	"log"
+	"os"
 
 	"github.com/Dwhistle/2022-CityHack/backend/src/database"
 	"github.com/Dwhistle/2022-CityHack/backend/src/models"
@@ -18,8 +19,8 @@ type Email struct {
 }
 
 func SendEmail(email *Email) error {
-	sender := "mostorg22@yandex.com"
-	dialer := gomail.NewDialer("smtp.yandex.com", 465, sender, "123456A.2")
+	sender := os.Getenv("SMTP_EMAIL")
+	dialer := gomail.NewDialer("smtp.yandex.com", 465, sender, os.Getenv("SMTP_PASSWORD"))
 	m := gomail.NewMessage()
 	m.SetHeader("From", sender)
 	m.SetHeader("To", email.To)

@@ -20,6 +20,8 @@ const GetUsersToMailQuery = `SELECT * from users WHERE status = 'APPROVED'`
 
 const GetUserProductsQuery = `SELECT * from products where creator_id = $1`
 
+const GetAllProductsQuery = `SELECT * from products`
+
 const UpdateUserStatusQuery = `UPDATE users SET status = $3, data = jsonb_set(data, '{reject_reason}', to_jsonb($2::text), true) WHERE login = $1`
 
 const GetOdkp2Query = `SELECT * from okpd2`
