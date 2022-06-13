@@ -24,9 +24,9 @@ function Footer() {
       <a href='/'>Пресс-центр</a>
       <a href='/'>Контакты</a>
       </div>
-      <div className={style.treeFlex}>
-      <button className={style.buttn}>Вход на платформу</button>
-      </div>
+      <button className={style.btn}>Вход на платформу</button>
+      {/* <div className={style.treeFlex}>
+      </div> */}
      </div>
     </>
   )
